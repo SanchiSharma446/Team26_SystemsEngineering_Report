@@ -8,6 +8,7 @@ const navItems = [
   { label: 'System Design', to: '/system-design' },
   { label: 'Implementation', to: '/implementation' },
   { label: 'Testing', to: '/testing' },
+  { label: 'User Manual', to: '/user-manual' },
   { label: 'Evaluation', to: '/evaluation' },
   { label: 'Appendices', to: '/appendices' },
 ]
