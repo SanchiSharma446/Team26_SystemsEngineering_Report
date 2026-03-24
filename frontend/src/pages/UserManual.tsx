@@ -14,6 +14,10 @@ function UserManual() {
             <p>hello, and welcome to Cresco, the smart farming assistant.</p>
             <p>This user manual will get you up to date on how to operate this application, and how to get the most out of cresco!</p>
 
+            <br></br>
+            <h2> - Main - </h2>
+
+
             <h4>Sign in Page</h4>
             <br></br>
 
@@ -40,7 +44,7 @@ function UserManual() {
             <p>the central area displays the chat interface, and the dashboard, selectable by the buttons at the top</p>
             <br></br>
 
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', margin: '0 auto', width: '80%' }}>
                 <img src={sidebarPng} style={{ width: '15vw' , marginLeft: '5vw' }} />
                 <div>
                     <h4>Toolbar</h4>
@@ -67,7 +71,7 @@ function UserManual() {
 
             <br></br>
 
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '80%', margin: '0 auto' }}>
                 <div>
                 <h4>Sources Sidebar</h4>
                 <p> This sidebar contains user added sources. press add field data to select any supported file, which the chatbot can then access to give more accurate information for your use case</p>
@@ -76,11 +80,16 @@ function UserManual() {
             </div>
             <br></br>
 
-
-            <img src={userPagePng} style={{ width: '15vw' }} />
-
+            <div style={{ justifyContent: 'space-around', margin: '0 auto', width: '80%' }}>   
+                <h4>Account Actions</h4>
+                <img src={userPagePng} style={{ width: '15vw' }} />
+                <p> In the account popup, you can sign out, or delete your account. deleting your account will remove all your data from the system</p>
+                <br></br>
+            </div>
             <br></br>
 
+            <h2> - Features - </h2>
+            <br></br>
 
 
             
