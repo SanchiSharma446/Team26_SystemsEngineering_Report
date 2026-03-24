@@ -63,10 +63,10 @@ All 8 Must-have and 8 Should-have functional requirements were completed, along 
 
 | Team Member  | Contribution (%) |
 | ------------ | ---------------- |
-| Shuaiting Li |                  |
-| Sagar        |                  |
-| Vivek Varkey |                  |
-| Sanchi       |                  |
+| Shuaiting Li | 25               |
+| Sagar        | 25               |
+| Vivek Varkey | 25               |
+| Sanchi       | 25               |
 
 ---
 
