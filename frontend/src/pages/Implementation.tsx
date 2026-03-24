@@ -1,9 +1,5 @@
-function Implementation() {
-	return (
-		<main>
-			<h2>Implementation</h2>
-		</main>
-	)
-}
+import MarkdownRenderer from '../components/MarkdownRenderer'
 
-export default Implementation
+export default function Implementation() {
+  return <MarkdownRenderer fileUrl="/docs/implementation.md" title="Implementation" />
+}

@@ -1,9 +1,5 @@
-function UIDesign() {
-	return (
-		<main>
-			<h2>UI Design</h2>
-		</main>
-	)
-}
+import MarkdownRenderer from '../components/MarkdownRenderer'
 
-export default UIDesign
+export default function UIDesign() {
+  return <MarkdownRenderer fileUrl="/docs/ui-design.md" title="UI Design" />
+}

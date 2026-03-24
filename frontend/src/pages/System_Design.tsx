@@ -1,9 +1,5 @@
-function SystemDesign() {
-	return (
-		<main>
-			<h2>System Design</h2>
-		</main>
-	)
-}
+import MarkdownRenderer from '../components/MarkdownRenderer'
 
-export default SystemDesign
+export default function SystemDesign() {
+  return <MarkdownRenderer fileUrl="/docs/system-design.md" title="System Design" />
+}
