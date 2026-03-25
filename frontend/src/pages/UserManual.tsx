@@ -5,6 +5,23 @@ import sidebarPng from "../assets/sidebar.png"
 import sourcesPng from "../assets/sources.png"
 import userPagePng from "../assets/user_page.png"
 
+import farmSelectPng from "../assets/farm_def_1.png"
+import farmSelect2Png from "../assets/farm_def_2.png"
+
+
+import weatherPng from "../assets/weather_data.png"
+import dronePng from "../assets/drone_image_result.png"
+import satellitePng from "../assets/satellite_image_2.png"
+import webSearchPng from "../assets/web_search.png"
+
+
+import droneGalleryPng from "../assets/drone_image_gallery.png"
+import droneResultsPng from "../assets/drone_image_result.png"
+import droneAnalysisPng from "../assets/drone_image_analysis.png"
+
+
+import dashboardPng from "../assets/dashboard.png"
+
 
 function UserManual() {
     return (
@@ -91,7 +108,60 @@ function UserManual() {
             <h2> - Features - </h2>
             <br></br>
 
+            <div style={{ justifyContent: 'space-around', margin: '0 auto', width: '80%' }}>
+                <h4>Select Farm</h4>
+                <img src={farmSelect2Png} style={{ width: '35vw' }} />
+                <p> This is the farm selection interface, which allows you to choose the boundaries of your farm. You can either search your farms location, or use your current location to locate your farm.</p>
+                <br></br>
 
+                <img src={farmSelectPng} style={{ width: '35vw' }} />
+                <p> After you've arrived at the right location, you can select your farm boundaries by dragging the selection nodes. The transparent nodes can be dragged to add more sides to the selection box. you can double click a node to remove it.</p>
+                <br></br>
+            </div>
+
+            <div style={{ justifyContent: 'space-around', margin: '0 auto', width: '80%' }}>
+                <h4>Weather</h4>
+                <img src={weatherPng} style={{ width: '35vw' }} />
+                <p> This is the weather interface, which allows you to view current weather conditions and forecasts for your farm.</p>
+                <br></br>
+            </div>
+            <div style={{ justifyContent: 'space-around', margin: '0 auto', width: '80%' }}>
+                <h4>Satelitte</h4>
+                <img src={satellitePng} style={{ width: '35vw' }} />
+                <p> This is the satellite imagery interface, which allows you to view NDVI Satellite image analysis of your farm.</p>
+                <br></br>
+            </div>
+            <div style={{ justifyContent: 'space-around', margin: '0 auto', width: '80%' }}>
+                <h4>Web search</h4>
+                <img src={webSearchPng} style={{ width: '35vw' }} />
+                <p> This is the web search toggle. toggling this on or off will enable or disable the web search feature for the chatbot, allowing you to trade breadth of information when search is on, to complete accuracy when it is off.</p>
+                <br></br>
+            </div>
+            <div style={{ justifyContent: 'space-around', margin: '0 auto', width: '80%' }}>
+                <h4>Drone Imagery Analysis</h4>
+                <img src={dronePng} style={{ width: '35vw' }} />
+                <p> This is the drone imagery analysis interface, which allows you to view and analyze images captured by drones over your farm. Choose the type of analysis you want to perform, then choose the 2 image types of rgb and Nir</p>
+                <br></br>
+                <img src={droneResultsPng} style={{ width: '35vw' }} />
+                <p> These images are then sent to the backend for processing, before being displayed in the results interface.</p>
+                <br></br>
+                <img src={droneGalleryPng} style={{ width: '35vw' }} />
+                <p> from the interface header, you can select the gallery view to see all captured images, and date them appropriately to organize them.</p>
+                <br></br>
+                <img src={droneAnalysisPng} style={{ width: '35vw' }} />
+                <p> This is the drone imagery analysis results interface, which displays the detailed analysis and insights from the processed drone images.</p>
+                <p>from here you can also select the analysis threshold, which determines the boundaries for measuring vegetation health.</p>
+                <br></br>
+            </div>
+
+
+
+            <div style={{ justifyContent: 'space-around', margin: '0 auto', width: '80%' }}>
+                <h4>Dashboard</h4>
+                <img src={dashboardPng} style={{ width: '35vw' }} />
+                <p> This is the dashboard interface, which provides an overview of your farm's status and key metrics. It contains the users current tasks, weather information, and drone imagery analysis.</p>
+                <br></br>
+            </div>
             
         </main>
     )
