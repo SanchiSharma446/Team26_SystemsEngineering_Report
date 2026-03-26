@@ -27,6 +27,30 @@ npm run lint       # ESLint
 
 There is no test framework configured.
 
+## Azure Demo Deployment
+
+The site is currently hosted at: https://crescoreportdemo.z33.web.core.windows.net/
+
+To redeploy after changes:
+
+```bash
+cd frontend
+npm run build
+az storage blob upload-batch \
+  --account-name crescoreportdemo \
+  --source dist \
+  --destination '$web' \
+  --overwrite
+```
+
+To tear down when the demo is no longer needed:
+
+```bash
+az group delete --name cresco-report-demo-rg --yes --no-wait
+```
+
+This deletes the resource group, storage account, and all hosted content.
+
 ## Architecture
 
 ### Content Pipeline
