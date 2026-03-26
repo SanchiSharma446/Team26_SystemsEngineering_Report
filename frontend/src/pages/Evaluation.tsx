@@ -1,9 +1,5 @@
-function Evaluation() {
-	return (
-		<main>
-			<h2>Evaluation</h2>
-		</main>
-	)
-}
+import MarkdownRenderer from '../components/MarkdownRenderer'
 
-export default Evaluation
+export default function Evaluation() {
+  return <MarkdownRenderer fileUrl="/docs/evaluation.md" title="Evaluation" />
+}

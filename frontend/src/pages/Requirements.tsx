@@ -1,9 +1,5 @@
-function Requirements() {
-	return (
-		<main>
-			<h2>Requirements</h2>
-		</main>
-	)
-}
+import MarkdownRenderer from '../components/MarkdownRenderer'
 
-export default Requirements
+export default function Requirements() {
+  return <MarkdownRenderer fileUrl="/docs/requirements.md" title="Requirements" />
+}
