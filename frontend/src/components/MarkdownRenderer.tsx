@@ -5,6 +5,7 @@ import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import mermaid from 'mermaid';
+import TableOfContents from './TableOfContents';
 import './MarkdownRenderer.css';
 
 // Initialize Mermaid
@@ -87,27 +88,32 @@ export default function MarkdownRenderer({ fileUrl, title }: MarkdownRendererPro
     }
   };
 
+  const contentRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="page-container">
       {title && <h1 className="page-title">{title}</h1>}
-      <div className="content-card markdown-body">
-        {loading ? (
-          <div className="loading-skeleton">Loading content...</div>
-        ) : error ? (
-          <div className="placeholder-content">
-            <h2>{title || 'Section'} Placeholder</h2>
-            <p>{error}</p>
-            <p>This section is either under construction or currently missing from the documentation repository.</p>
-          </div>
-        ) : (
-          <ReactMarkdown 
-            remarkPlugins={[remarkGfm]} 
-            rehypePlugins={[rehypeRaw]}
-            components={components}
-          >
-            {content}
-          </ReactMarkdown>
-        )}
+      <div className="page-layout">
+        <TableOfContents contentRef={contentRef} contentKey={content} />
+        <div className="content-card markdown-body" ref={contentRef}>
+          {loading ? (
+            <div className="loading-skeleton">Loading content...</div>
+          ) : error ? (
+            <div className="placeholder-content">
+              <h2>{title || 'Section'} Placeholder</h2>
+              <p>{error}</p>
+              <p>This section is either under construction or currently missing from the documentation repository.</p>
+            </div>
+          ) : (
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+              components={components}
+            >
+              {content}
+            </ReactMarkdown>
+          )}
+        </div>
       </div>
     </div>
   );

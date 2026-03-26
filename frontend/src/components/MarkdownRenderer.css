@@ -1,3 +1,14 @@
+/* Two-column layout: TOC + content */
+.page-layout {
+  display: flex;
+  gap: 2rem;
+}
+
+.page-layout .content-card {
+  flex: 1;
+  min-width: 0;
+}
+
 .markdown-body {
   font-family: var(--font-family-sans);
   color: var(--color-text-primary);
@@ -141,4 +152,10 @@
 .placeholder-content h2 {
   color: var(--color-secondary);
   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .page-layout {
+    flex-direction: column;
+  }
 }
