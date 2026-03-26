@@ -61,100 +61,52 @@ The following UML use case diagram illustrates the actors and relationships with
 ```mermaid
 flowchart LR
     Farmer([Farmer])
-    External([External Services])
 
     subgraph Cresco [Cresco System]
         direction TB
-        UC5([UC5: Send Chat Message])
-        UC10([UC10: Retrieve Ag Info])
-        UC11([UC11: Search Internet])
-        UC12([UC12: Generate Task List])
-        UC13([UC13: Generate Inline Chart])
-        
-        UC14([UC14: Upload Document])
-        UC17([UC17: Index Document])
-        
-        UC18([UC18: Set Farm Location])
-        UC21([UC21: Save Farm Data])
-        UC22([UC22: Reverse Geocode])
-        UC23([UC23: Search by Address])
-        
-        UC24([UC24: Upload Drone Images])
-        UC25([UC25: Select Veg Index])
-        
-        UC20([UC20: Fetch Weather])
-        UC30([UC30: Fetch Satellite NDVI])
+        UC1([UC1: Chat with AI Assistant])
+        UC2([UC2: Set Farm Location])
+        UC3([UC3: View Weather Forecast])
+        UC4([UC4: Monitor Vegetation Health])
     end
 
-    %% Primary Actor
-    Farmer --> UC5
-    Farmer --> UC14
-    Farmer --> UC18
-    Farmer --> UC24
-    Farmer --> UC20
-    Farmer --> UC30
+    LLM([LLM Provider])
+    KB([Knowledge Base])
+    Tavily([Tavily])
+    Nominatim([Nominatim])
+    OWM([OpenWeatherMap])
+    Copernicus([Copernicus])
+    Drone([Drone Processor])
 
-    %% Includes & Extends
-    UC5 -. "&lt;&lt;include&gt;&gt;" .-> UC10
-    UC5 -. "&lt;&lt;extend&gt;&gt;\n[if enabled]" .-> UC11
-    UC5 -. "&lt;&lt;extend&gt;&gt;" .-> UC12
-    UC5 -. "&lt;&lt;extend&gt;&gt;" .-> UC13
-    
-    UC14 -. "&lt;&lt;include&gt;&gt;" .-> UC17
-    
-    UC18 -. "&lt;&lt;include&gt;&gt;" .-> UC21
-    UC18 -. "&lt;&lt;include&gt;&gt;" .-> UC22
-    UC18 -. "&lt;&lt;extend&gt;&gt;" .-> UC23
-    
-    UC24 -. "&lt;&lt;include&gt;&gt;" .-> UC25
+    Farmer --> UC1
+    Farmer --> UC2
+    Farmer --> UC3
+    Farmer --> UC4
 
-    %% External Connections
-    UC11 --> External
-    UC22 --> External
-    UC23 --> External
-    UC20 --> External
-    UC30 --> External
+    UC1 --> LLM
+    UC1 --> KB
+    UC1 --> Tavily
+    UC2 --> Nominatim
+    UC3 --> OWM
+    UC4 --> Drone
+    UC4 --> Copernicus
 
     classDef actor fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#1e293b
     classDef usecase fill:#ffffff,stroke:#64748b,stroke-width:1px,color:#1e293b
-    class Farmer,External actor
-    class UC5,UC10,UC11,UC12,UC13,UC14,UC17,UC18,UC21,UC22,UC23,UC24,UC25,UC20,UC30 usecase
+    classDef service fill:#f0fdf4,stroke:#16a34a,stroke-width:1px,color:#1e293b
+    class Farmer actor
+    class UC1,UC2,UC3,UC4 usecase
+    class LLM,KB,Tavily,Nominatim,OWM,Copernicus,Drone service
 ```
 
 ### 5.2 List of Use Cases
 
-| ID   | Use Case                   | Actor(s)                  | Description                                                                                                   |
-| ---- | -------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| UC1  | Register Account           | Farmer                    | Create account with username and password; system returns a JWT.                                              |
-| UC2  | Log In                     | Farmer                    | Authenticate with credentials; system validates and issues a JWT.                                             |
-| UC3  | Log Out                    | Farmer                    | End session and clear stored tokens.                                                                          |
-| UC4  | Delete Account             | Farmer                    | Permanently remove account with cascading deletion of all user data.                                          |
-| UC5  | Send Chat Message          | Farmer                    | Submit a natural language question; receive an AI response with source citations, optional tasks, and charts. |
-| UC6  | View Chat History          | Farmer                    | View persisted conversation history loaded on login.                                                          |
-| UC7  | Delete Last Exchange       | Farmer                    | Remove the most recent question-answer pair from agent memory.                                                |
-| UC8  | Clear All History          | Farmer                    | Remove all conversation history.                                                                              |
-| UC9  | Toggle Internet Search     | Farmer                    | Enable or disable the agent's internet search capability.                                                     |
-| UC10 | Retrieve Agricultural Info | Farmer, External Services | Agent searches the knowledge base via ChromaDB with per-user scoping. Included by UC5.                        |
-| UC11 | Search Internet            | Farmer, External Services | Agent queries Tavily for real-time information. Extends UC5.                                                  |
-| UC12 | Generate Task List         | Farmer                    | Agent produces up to 5 prioritised action tasks. Extends UC5.                                                 |
-| UC13 | Generate Inline Chart      | Farmer                    | Agent produces a bar, line, or pie chart inline in the response. Extends UC5.                                 |
-| UC14 | Upload Document            | Farmer                    | Upload a .md/.pdf/.txt/.csv/.json file; system auto-indexes it.                                               |
-| UC15 | View Uploaded Documents    | Farmer                    | List all uploaded files with type icons and source count.                                                     |
-| UC16 | Delete Uploaded Document   | Farmer                    | Remove an uploaded file and its indexed chunks from ChromaDB.                                                 |
-| UC17 | Index Document             | Farmer                    | System chunks and indexes the uploaded document. Included by UC14.                                            |
-| UC18 | Set Farm Location          | Farmer                    | Draw a polygon boundary on a Leaflet satellite map; area calculated via Turf.js.                              |
-| UC19 | View Weather Forecast      | Farmer                    | View 5-day forecast cards and temperature/wind chart.                                                         |
-| UC20 | Fetch Weather Data         | Farmer, External Services | Fetch current weather and forecast from OpenWeatherMap for farm coordinates.                                  |
-| UC21 | Save Farm Data             | Farmer                    | Save farm location, area, and polygon to the database. Included by UC18.                                      |
-| UC22 | Reverse Geocode Location   | Farmer, External Services | Obtain a location name from coordinates via Nominatim. Included by UC18.                                      |
-| UC23 | Search Location by Address | Farmer, External Services | Search by address/postcode via Nominatim and centre the map. Extends UC18.                                    |
-| UC24 | Upload Drone Images        | Farmer                    | Upload paired RGB and NIR images; system generates a vegetation index image.                                  |
-| UC25 | Select Vegetation Index    | Farmer                    | Choose NDVI, EVI, or SAVI for drone image processing. Included by UC24.                                       |
-| UC26 | View Image Gallery         | Farmer                    | Browse saved drone images with filtering, histograms, and timestamps.                                         |
-| UC27 | Delete Drone Image         | Farmer                    | Remove a saved drone analysis image and its metadata.                                                         |
-| UC28 | Edit Image Timestamp       | Farmer                    | Correct the capture date/time of a drone image.                                                               |
-| UC29 | View Time Series Chart     | Farmer                    | Visualise NDVI trends over time as a stacked health bar chart.                                                |
-| UC30 | Fetch Satellite NDVI       | Farmer, External Services | Fetch Sentinel-2 NDVI for farm coordinates from Copernicus. Requires UC18.                                    |
+| ID  | Use Case                   | Key Services                      | Description                                                                                                                                                                          |
+| --- | -------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| UC1 | Chat with AI Assistant     | LLM Provider, Knowledge Base, Tavily | Send natural-language questions and receive RAG-grounded responses with source citations, task lists, and inline charts. Upload documents for retrieval. Manage conversation history. |
+| UC2 | Set Farm Location          | Nominatim                         | Draw a polygon boundary on a satellite map, search by address, and save farm data with automatic geocoding.                                                                          |
+| UC3 | View Weather Forecast      | OpenWeatherMap                    | Fetch and display current weather and 5-day forecast with temperature/wind charts for farm coordinates.                                                                              |
+| UC4 | Monitor Vegetation Health  | Drone Processor, Copernicus       | Upload paired RGB/NIR drone images to compute vegetation indices (NDVI/EVI/SAVI) with a gallery and time series charts, and fetch Sentinel-2 satellite NDVI imagery.                 |
 
 ---
 
