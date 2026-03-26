@@ -55,9 +55,9 @@ const features = [
 
 const team = [
   { name: 'Shuaiting Li', initials: 'SL', color: '#2563eb', role: 'Backend Architecture, Agent, CI/CD' },
-  { name: 'Sagar', initials: 'S', color: '#059669', role: 'Frontend Testing, Shared UI Components' },
+  { name: 'Sagar Nair', initials: 'S', color: '#059669', role: 'Frontend Testing, Shared UI Components' },
   { name: 'Vivek Varkey', initials: 'VV', color: '#7c3aed', role: 'Frontend UI, Integrations' },
-  { name: 'Sanchi', initials: 'S', color: '#dc2626', role: 'Drone Features, Account Management' },
+  { name: 'Sanchi Sharma', initials: 'S', color: '#dc2626', role: 'Drone Features, Account Management' },
 ]
 
 const techStack = [
@@ -99,7 +99,7 @@ export default function Home() {
         <div className="partner-bar-inner">
           <span>UCL COMP0016</span>
           <div className="partner-divider" />
-          <span>Industry Exchange Network 2024/25</span>
+          <span>Industry Exchange Network 2025/26</span>
           <div className="partner-divider" />
           <span>NTT DATA</span>
         </div>
