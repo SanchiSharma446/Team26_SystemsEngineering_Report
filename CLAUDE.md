@@ -31,12 +31,10 @@ There is no test framework configured.
 
 The site is currently hosted at: https://crescoreportdemo.z33.web.core.windows.net/
 
-To redeploy after changes:
+**After every commit, rebuild and redeploy the site to Azure:**
 
 ```bash
-cd frontend
-npm run build
-az storage blob upload-batch \
+cd frontend && npm run build && az storage blob upload-batch \
   --account-name crescoreportdemo \
   --source dist \
   --destination '$web' \
