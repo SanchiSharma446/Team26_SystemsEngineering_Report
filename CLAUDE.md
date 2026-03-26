@@ -51,6 +51,20 @@ az group delete --name cresco-report-demo-rg --yes --no-wait
 
 This deletes the resource group, storage account, and all hosted content.
 
+## Design References
+
+The website style is based on these UCL student project sites:
+
+- https://students.cs.ucl.ac.uk/2024/group1/ — Super Happy Space (Docusaurus, top nav)
+- https://students.cs.ucl.ac.uk/2024/group4/ — React SPA
+- https://students.cs.ucl.ac.uk/2024/group14/ — NaviGo (custom, top nav)
+- https://students.cs.ucl.ac.uk/2024/group15 — SightLinks (single-page scroll)
+- https://students.cs.ucl.ac.uk/2024/group28 — Webex Log Viewer (Bootstrap, top nav with dropdowns)
+- https://students.cs.ucl.ac.uk/2023/group1 — MotionInput (Docusaurus, top nav)
+- https://students.cs.ucl.ac.uk/2023/group23 — Quantum for Kids (Bootstrap)
+
+Common patterns adopted: hero section with project name/tagline, feature card grid, team member cards with avatars, partner bar, multi-column dark footer, mobile hamburger nav.
+
 ## Architecture
 
 ### Content Pipeline
