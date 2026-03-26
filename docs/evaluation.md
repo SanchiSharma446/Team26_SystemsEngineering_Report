@@ -4,55 +4,40 @@
 
 ### 1.1 Achievement Table — Functional Requirements
 
-| ID    | Requirement                                                             | Priority | Status      | Contributors             |
-| ----- | ----------------------------------------------------------------------- | -------- | ----------- | ------------------------ |
-| FR-01 | User registration with bcrypt hashing and JWT                           | Must     | Complete    | Shuaiting, Vivek, Sanchi |
-| FR-02 | User login with JWT session management                                  | Must     | Complete    | Shuaiting, Vivek, Sanchi |
-| FR-03 | Conversational chat with RAG-grounded responses and source citations    | Must     | Complete    | Shuaiting, Sagar, Vivek  |
-| FR-04 | ChromaDB retrieval with per-user document scoping                       | Must     | Complete    | Shuaiting, Sagar, Vivek  |
-| FR-05 | Persistent conversation history via PostgreSQL checkpointer             | Must     | Complete    | Shuaiting, Sagar, Vivek  |
-| FR-06 | Document upload with automatic chunking and indexing                    | Must     | Complete    | Shuaiting, Vivek         |
-| FR-07 | Weather panel with 5-day forecast and temperature/wind chart            | Must     | Complete    | Vivek, Shuaiting, Sanchi |
-| FR-08 | Interactive Leaflet map with polygon farm boundary and geocoding        | Must     | Complete    | Vivek, Shuaiting, Sagar  |
-| FR-09 | Drone image upload with NDVI/EVI/SAVI computation                       | Should   | Complete    | Sanchi                   |
-| FR-10 | Sentinel-2 satellite NDVI image via Copernicus                          | Should   | Complete    | Vivek                    |
-| FR-11 | Inline task cards and chart rendering from agent responses              | Should   | Complete    | All                      |
-| FR-12 | Dashboard with tasks, weather, season, and field health chart           | Should   | Complete    | Vivek, Sanchi            |
-| FR-13 | Delete last conversational exchange                                     | Should   | Complete    | Shuaiting                |
-| FR-14 | Toggleable internet search via Tavily                                   | Should   | Complete    | Shuaiting                |
-| FR-15 | Account deletion with cascading data removal                            | Should   | Complete    | Sanchi, Vivek            |
-| FR-16 | Markdown, LaTeX, and Recharts rendering in chat                         | Should   | Complete    | Vivek, Sagar, Shuaiting  |
-| FR-17 | Drag-and-drop file upload                                               | Could    | Complete    | Vivek, Sagar             |
-| FR-18 | Multi-LLM provider support (5 providers)                                | Could    | Complete    | Shuaiting                |
-| FR-19 | Drone image gallery with filtering, histograms, and editable timestamps | Could    | Complete    | Sanchi                   |
-| FR-20 | Collapsible sidebars                                                    | Could    | Complete    | Vivek, Sagar             |
-| FR-21 | Clear entire conversation history                                       | Should   | Complete    | Shuaiting                |
-| FR-22 | Streaming chat responses via Server-Sent Events                         | Could    | Not Started | —                        |
-| FR-23 | Voice input via Web Speech API for hands-free use                       | Could    | Not Started | —                        |
-| FR-24 | Export conversation history as PDF                                      | Could    | Not Started | —                        |
+| ID    | Requirement                                                                        | Priority | Status      | Contributors             |
+| ----- | ---------------------------------------------------------------------------------- | -------- | ----------- | ------------------------ |
+| FR-01 | User registration and login with bcrypt hashing and JWT                            | Must     | Complete    | Shuaiting, Vivek, Sanchi |
+| FR-02 | RAG chat with per-user knowledge base retrieval and source citations               | Must     | Complete    | Shuaiting, Sagar, Vivek  |
+| FR-03 | Persistent conversation history with delete-last and clear-all                     | Must     | Complete    | Shuaiting, Sagar, Vivek  |
+| FR-04 | Document upload with automatic chunking and indexing                                | Must     | Complete    | Shuaiting, Vivek         |
+| FR-05 | Weather panel with 5-day forecast and temperature/wind chart                       | Must     | Complete    | Vivek, Shuaiting, Sanchi |
+| FR-06 | Interactive Leaflet map with polygon farm boundary and geocoding                   | Must     | Complete    | Vivek, Shuaiting, Sagar  |
+| FR-07 | Drone image analysis with vegetation indices, gallery, and time series             | Should   | Complete    | Sanchi, Vivek            |
+| FR-08 | Sentinel-2 satellite NDVI imagery from Copernicus                                  | Should   | Complete    | Vivek                    |
+| FR-09 | Inline task cards, charts, Markdown, LaTeX, and source citations in responses      | Should   | Complete    | All                      |
+| FR-10 | Dashboard aggregating tasks, weather, season, and field health                     | Should   | Complete    | Vivek, Sanchi            |
+| FR-11 | Toggleable internet search and account deletion with cascading cleanup             | Should   | Complete    | Shuaiting, Sanchi, Vivek |
+| FR-12 | Multi-LLM provider support, drag-and-drop upload, and collapsible sidebars        | Could    | Complete    | Shuaiting, Vivek, Sagar  |
+| FR-13 | Streaming responses, voice input, and PDF export                                   | Could    | Not Started | —                        |
+| FR-14 | Native mobile app, collaborative sessions, farm software integration, custom LLM   | Won't    | —           | —                        |
 
 ### 1.2 Achievement Table — Non-Functional Requirements
 
-| ID     | Requirement                                         | Priority | Status      | Contributors             |
-| ------ | --------------------------------------------------- | -------- | ----------- | ------------------------ |
-| NFR-01 | Chat response within 120 seconds                    | Must     | Complete    | All                      |
-| NFR-02 | Server-side API key storage; proxied external calls | Must     | Complete    | Shuaiting, Vivek         |
-| NFR-03 | JWT authentication on all protected endpoints       | Must     | Complete    | Shuaiting, Vivek, Sanchi |
-| NFR-04 | Bcrypt password hashing; no plaintext storage       | Must     | Complete    | Shuaiting                |
-| NFR-05 | Per-user data isolation across all data types       | Must     | Complete    | Shuaiting                |
-| NFR-06 | 80%+ backend test coverage enforced by CI           | Must     | Complete    | All                      |
-| NFR-07 | Ruff and ESLint linting enforced by CI              | Must     | Complete    | Shuaiting                |
-| NFR-08 | ARIA labels, semantic HTML, keyboard navigation     | Should   | Complete    | Vivek, Sagar             |
-| NFR-09 | Async connection pool and parallel API calls        | Should   | Complete    | Shuaiting                |
-| NFR-10 | Docker deployment with CI/CD pipeline to Azure      | Should   | Complete    | Shuaiting, Sagar, Sanchi |
-| NFR-11 | Provider-agnostic LLM initialisation                | Should   | Complete    | Shuaiting                |
-| NFR-12 | Open-source stack with no proprietary dependencies  | Should   | Complete    | All                      |
-| NFR-13 | Graceful error handling with fallbacks              | Should   | Complete    | Shuaiting, Vivek         |
-| NFR-14 | Environment variable configuration via .env         | Should   | Complete    | All                      |
-| NFR-15 | Dark theme for reduced eye strain                   | Could    | Complete    | Vivek, Sagar             |
-| NFR-16 | Progressive Web App with offline caching            | Could    | Not Started | —                        |
+| ID     | Requirement                                                                   | Priority | Status      | Contributors             |
+| ------ | ----------------------------------------------------------------------------- | -------- | ----------- | ------------------------ |
+| NFR-01 | Chat response within 120 seconds                                              | Must     | Complete    | All                      |
+| NFR-02 | Server-side API keys, JWT authentication, and bcrypt password hashing         | Must     | Complete    | Shuaiting, Vivek, Sanchi |
+| NFR-03 | Per-user data isolation across all data types                                 | Must     | Complete    | Shuaiting                |
+| NFR-04 | 80%+ backend coverage and Ruff/ESLint linting enforced by CI                  | Must     | Complete    | All                      |
+| NFR-05 | ARIA labels, semantic HTML, keyboard navigation                               | Should   | Complete    | Vivek, Sagar             |
+| NFR-06 | Async connection pool and parallel API calls                                  | Should   | Complete    | Shuaiting                |
+| NFR-07 | Docker deployment with CI/CD pipeline to Azure                                | Should   | Complete    | Shuaiting, Sagar, Sanchi |
+| NFR-08 | Provider-agnostic LLM init, open-source stack, and env-var configuration      | Should   | Complete    | All                      |
+| NFR-09 | Graceful error handling with fallbacks                                         | Should   | Complete    | Shuaiting, Vivek         |
+| NFR-10 | Dark theme and Progressive Web App with offline caching                       | Could    | Partial     | Vivek, Sagar             |
+| NFR-11 | Horizontal scaling and multi-language localisation                             | Won't    | —           | —                        |
 
-All 8 Must-have and 8 Should-have functional requirements were completed, along with 4 of 7 Could-have functional requirements and 14 of 16 non-functional requirements. The 4 incomplete Could-have items (FR-22, FR-23, FR-24, NFR-16) were deprioritised in favour of delivering all Must-have and Should-have requirements to a high standard.
+All 6 Must-have and 5 Should-have functional requirements were completed, along with 1 of 2 Could-have functional requirements. The incomplete Could-have (FR-13: streaming, voice, PDF export) was deprioritised in favour of delivering all Must-have and Should-have requirements to a high standard. For non-functional requirements, all Must-have, all Should-have, and 1 of 2 Could-have items were completed (dark theme delivered; PWA not started).
 
 ### 1.3 Known Bugs
 
