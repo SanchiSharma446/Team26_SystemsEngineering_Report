@@ -44,14 +44,35 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 1. **Historical message rendering:** When loading conversation history, the frontend occasionally renders tool call messages, system messages, and empty messages that should be filtered out, cluttering the chat display.
 2. **Document serialization workaround:** The agent uses a short-term fix for converting Document objects to dictionaries during JSON serialization of uploaded file retrieval results (`agent.py`, line 288). This works correctly but may mask a deeper issue in how LangChain Document objects are passed between tools.
 
-### 1.4 Individual Contribution Table
+### 1.4 Individual Contributions for System Artefacts
 
-| Team Member  | Contribution (%) |
-| ------------ | ---------------- |
-| Shuaiting Li | 25               |
-| Sagar        | 25               |
-| Vivek Varkey | 25               |
-| Sanchi       | 25               |
+| Work packages             | Sagar | Sanchi | Shuaiting | Vivek |
+| ------------------------- | ----- | ------ | --------- | ----- |
+| Research and Experiments  | 25%   | 25%    | 25%       | 25%   |
+| UI Design (if applicable) | 25%   | 25%    | 25%       | 25%   |
+| Coding                    | 25%   | 25%    | 25%       | 25%   |
+| Testing                   | 25%   | 25%    | 25%       | 25%   |
+| Overall contribution      | 25%   | 25%    | 25%       | 25%   |
+
+### 1.5 Individual Contributions for Report Website
+
+| Work packages               | Sagar | Sanchi | Shuaiting | Vivek |
+| --------------------------- | ----- | ------ | --------- | ----- |
+| Website Template and Setup  | 25%   | 25%    | 25%       | 25%   |
+| Home                        | 25%   | 25%    | 25%       | 25%   |
+| Video                       | 25%   | 25%    | 25%       | 25%   |
+| Requirement                 | 25%   | 25%    | 25%       | 25%   |
+| Research                    | 25%   | 25%    | 25%       | 25%   |
+| Algorithm (if applicable)   | 25%   | 25%    | 25%       | 25%   |
+| UI Design (if applicable)   | 25%   | 25%    | 25%       | 25%   |
+| System Design               | 25%   | 25%    | 25%       | 25%   |
+| Implementation              | 25%   | 25%    | 25%       | 25%   |
+| Testing                     | 25%   | 25%    | 25%       | 25%   |
+| Evaluation and Future Work  | 25%   | 25%    | 25%       | 25%   |
+| User and Deployment Manuals | 25%   | 25%    | 25%       | 25%   |
+| Legal Issues                | 25%   | 25%    | 25%       | 25%   |
+| Blog and Monthly Video      | 25%   | 25%    | 25%       | 25%   |
+| Overall contribution        | 25%   | 25%    | 25%       | 25%   |
 
 ---
 
@@ -144,33 +165,3 @@ The project used a single deployment branch (master) without a staging environme
 **Voice interface.** Speech-to-text input would enable hands-free interaction during fieldwork, addressing the practical constraint that farmers often cannot type while working.
 
 **Formal accessibility audit.** Commissioning a WCAG 2.1 Level AA compliance audit and addressing the findings would ensure the application meets accessibility standards beyond the current Level A target.
-
-## 4. Individual Contributions for System Artefacts
-
-| Work packages             | Sagar | Sanchi | Shuaiting | Vivek |
-| ------------------------- | ----- | ------ | --------- | ----- |
-| Research and Experiments  | 25%   | 25%    | 25%       | 25%   |
-| UI Design (if applicable) | 25%   | 25%    | 25%       | 25%   |
-| Coding                    | 25%   | 25%    | 25%       | 25%   |
-| Testing                   | 25%   | 25%    | 25%       | 25%   |
-| Overall contribution      | 25%   | 25%    | 25%       | 25%   |
-
-## 5. Individual Contributions for Report Website
-
-| Work packages               | Sagar | Sanchi | Shuaiting | Vivek |
-| --------------------------- | ----- | ------ | --------- | ----- |
-| Website Template and Setup  | 25%   | 25%    | 25%       | 25%   |
-| Home                        | 25%   | 25%    | 25%       | 25%   |
-| Video                       | 25%   | 25%    | 25%       | 25%   |
-| Requirement                 | 25%   | 25%    | 25%       | 25%   |
-| Research                    | 25%   | 25%    | 25%       | 25%   |
-| Algorithm (if applicable)   | 25%   | 25%    | 25%       | 25%   |
-| UI Design (if applicable)   | 25%   | 25%    | 25%       | 25%   |
-| System Design               | 25%   | 25%    | 25%       | 25%   |
-| Implementation              | 25%   | 25%    | 25%       | 25%   |
-| Testing                     | 25%   | 25%    | 25%       | 25%   |
-| Evaluation and Future Work  | 25%   | 25%    | 25%       | 25%   |
-| User and Deployment Manuals | 25%   | 25%    | 25%       | 25%   |
-| Legal Issues                | 25%   | 25%    | 25%       | 25%   |
-| Blog and Monthly Video      | 25%   | 25%    | 25%       | 25%   |
-| Overall contribution        | 25%   | 25%    | 25%       | 25%   |
