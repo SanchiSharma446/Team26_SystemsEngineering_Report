@@ -1,9 +1,5 @@
-function UserManual() {
-    return (
-        <main>
-            <h2>User Manual</h2>
-        </main>
-    )
-}
+import MarkdownRenderer from '../components/MarkdownRenderer'
 
-export default UserManual
+export default function UserManual() {
+  return <MarkdownRenderer fileUrl="/docs/user-manual.md" title="User Manual" />
+}

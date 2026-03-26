@@ -1,9 +1,5 @@
-function Research() {
-	return (
-		<main>
-			<h2>Research</h2>
-		</main>
-	)
-}
+import MarkdownRenderer from '../components/MarkdownRenderer'
 
-export default Research
+export default function Research() {
+  return <MarkdownRenderer fileUrl="/docs/research.md" title="Research" />
+}
