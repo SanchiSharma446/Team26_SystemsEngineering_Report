@@ -17,7 +17,7 @@ import signIn from '../assets/sign_in_page.png'
 import gantt from '../assets/gantt.png'
 import uclLogo from '../assets/ucl.jpg'
 import nttLogo from '../assets/ntt.png'
-import azureLogo from '../assets/azure.png'
+import azureLogo from '../assets/azure.svg'
 import './Home.css'
 
 const features = [
@@ -91,7 +91,7 @@ const team = [
     name: 'Sanchi Sharma',
     initials: 'S',
     color: '#dc2626',
-    role: 'Drone Features, Account Management',
+    role: 'Drone Features, Account Management, Client Liaison',
     email: 'sanchi.sharma.24@ucl.ac.uk',
     github: 'https://github.com/SanchiSharma446',
     linkedin: 'https://www.linkedin.com/in/sanchi-sharma-8b7840265/',
@@ -207,7 +207,7 @@ export default function Home() {
           <p>
             Cresco&apos;s modular architecture is designed for scalability, with clear pathways for
             more plug-and-play options down the line, allowing it to extend far beyond the
-            classroom.
+            classroom. Cresco was successfully developed, deployed, and handed over to NTT DATA. The final system supports NDVI, EVI, and SAVI extraction from multispectral drone imagery, real-time satellite integration via Copernicus Sentinel-2, and a fully containerised deployment on Azure. Feedback from the client at handover was positive, validating Cresco as a practical, foundation for accessible precision agriculture.
           </p>
         </div>
       </section>
