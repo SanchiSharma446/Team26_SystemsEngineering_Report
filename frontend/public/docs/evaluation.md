@@ -50,7 +50,7 @@ No known bugs remain at the time of submission.
 | Research and Experiments  | 10%   | 25%    | 45%       | 20%   |
 | UI Design                 | 30%   | 20%    | 10%       | 40%   |
 | Coding                    | 15%   | 20%    | 40%       | 25%   |
-| Testing                   | 40%   | 15%    | 30%       | 15%   |
+| Testing                   | 40%   | 15%    | 25%       | 20%   |
 | Overall contribution      | 20%   | 25%    | 35%       | 20%   |
 
 ### 1.5 Individual Contributions for Report Website
@@ -62,12 +62,12 @@ No known bugs remain at the time of submission.
 | Video                       | 80%   | 0%     | 20%       | 0%    |
 | Requirement                 | 0%    | 45%    | 55%       | 0%    |
 | Research                    | 0%    | 70%    | 30%       | 0%    |
-| UI Design                   | 10%   | 0%     | 15%       | 75%   |
+| UI Design                   | 0%    | 15%    | 10%       | 75%   |
 | System Design               | 0%    | 10%    | 85%       | 5%    |
 | Implementation              | 5%    | 20%    | 40%       | 35%   |
-| Testing                     | 5%    | 10%    | 40%       | 45%   |
+| Testing                     | 10%   | 0%     | 0%        | 90%   |
 | Evaluation and Future Work  | 5%    | 20%    | 65%       | 10%   |
-| User and Deployment Manuals | 5%    | 5%     | 55%       | 35%   |
+| User and Deployment Manuals | 5%    | 5%     | 45%       | 45%   |
 | Legal Issues                | 95%   | 5%     | 0%        | 0%    |
 | Blog and Monthly Video      | 0%    | 75%    | 20%       | 5%    |
 | Overall contribution        | 20%   | 30%    | 30%       | 20%   |
