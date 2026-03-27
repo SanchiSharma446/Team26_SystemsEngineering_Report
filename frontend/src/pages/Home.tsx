@@ -323,6 +323,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Demo Video */}
+      <section className="home-section">
+        <h2 className="section-title">Demo Video</h2>
+        <p className="section-subtitle">Watch a walkthrough of Cresco in action</p>
+        <div className="video-embed-wrapper" style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
+          <iframe
+            width="720"
+            height="405"
+            src="https://www.youtube.com/embed/bGYbpUUhR1E"
+            title="Cresco Demo Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{ borderRadius: '12px', maxWidth: '100%' }}
+          ></iframe>
+        </div>
+      </section>
+
       {/* Team */}
       <section className="home-section">
         <h2 className="section-title">Our Team</h2>
