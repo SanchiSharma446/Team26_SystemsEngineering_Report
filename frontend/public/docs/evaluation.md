@@ -48,7 +48,7 @@ No known bugs remain at the time of submission.
 | Work packages             | Sagar | Sanchi | Shuaiting | Vivek |
 | ------------------------- | ----- | ------ | --------- | ----- |
 | Research and Experiments  | 10%   | 25%    | 45%       | 20%   |
-| UI Design (if applicable) | 30%   | 20%    | 10%       | 40%   |
+| UI Design                 | 30%   | 20%    | 10%       | 40%   |
 | Coding                    | 15%   | 20%    | 40%       | 25%   |
 | Testing                   | 40%   | 15%    | 30%       | 15%   |
 | Overall contribution      | 20%   | 25%    | 35%       | 20%   |
@@ -62,8 +62,7 @@ No known bugs remain at the time of submission.
 | Video                       | 80%   | 0%     | 20%       | 0%    |
 | Requirement                 | 0%    | 45%    | 55%       | 0%    |
 | Research                    | 0%    | 70%    | 30%       | 0%    |
-| Algorithm (if applicable)   | 25%   | 25%    | 25%       | 25%   |
-| UI Design (if applicable)   | 10%   | 0%     | 15%       | 75%   |
+| UI Design                   | 10%   | 0%     | 15%       | 75%   |
 | System Design               | 0%    | 10%    | 85%       | 5%    |
 | Implementation              | 5%    | 20%    | 40%       | 35%   |
 | Testing                     | 5%    | 10%    | 40%       | 45%   |
