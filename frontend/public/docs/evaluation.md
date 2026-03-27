@@ -68,7 +68,7 @@ No known bugs remain at the time of submission.
 | Testing                     | 5%    | 10%    | 40%       | 45%   |
 | Evaluation and Future Work  | 5%    | 20%    | 65%       | 10%   |
 | User and Deployment Manuals | 5%    | 5%     | 55%       | 35%   |
-| Legal Issues                | 70%   | 5%     | 25%       | 0%    |
+| Legal Issues                | 95%   | 5%     | 0%        | 0%    |
 | Blog and Monthly Video      | 0%    | 75%    | 20%       | 5%    |
 | Overall contribution        | 20%   | 30%    | 30%       | 20%   |
 
