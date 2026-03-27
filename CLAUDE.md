@@ -4,12 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Team 26 Systems Engineering Report website. It renders markdown documentation as a static website using React + Vite. The authoritative content lives in `docs/` as markdown files; the frontend reads copies from `frontend/public/docs/` at runtime and renders them.
+This is a Team 26 Systems Engineering Report website. It renders markdown documentation as a static website using React + Vite. Markdown content lives in `frontend/public/docs/` and is fetched at runtime.
 
 ## Key Constraints
 
-- **Content source of truth is `docs/`**. Web content must be consistent with `docs/` but does not need to be identical. Some doc sections are still missing — pages gracefully show placeholders when markdown files are not found.
-- **`individual-contribution.md` must NOT be added to the website or committed to git.** It exists locally in `docs/` and `frontend/public/docs/` but should stay untracked.
+- **Content source of truth is `frontend/public/docs/`**. Do not duplicate files into the root `docs/` directory — that directory is only used for files that are not part of the website (e.g. PDFs, individual contribution records).
+- **`individual-contribution.md` must NOT be added to the website or committed to git.** It exists locally in `frontend/public/docs/` but should stay untracked.
+- Some doc sections are still missing — pages gracefully show placeholders when markdown files are not found.
 - **The site must be exportable as a static site navigable from `index.html`.** The frontend uses `HashRouter` (not `BrowserRouter`) to support this — all routes work via `index.html#/path`.
 
 ## Commands
@@ -67,7 +68,7 @@ Common patterns adopted: hero section with project name/tagline, feature card gr
 
 ### Content Pipeline
 
-`docs/*.md` -> copied to `frontend/public/docs/*.md` -> fetched at runtime by `MarkdownRenderer` -> rendered with `react-markdown` + `remark-gfm` + `rehype-raw`
+`frontend/public/docs/*.md` -> fetched at runtime by `MarkdownRenderer` -> rendered with `react-markdown` + `remark-gfm` + `rehype-raw`
 
 Mermaid diagrams in markdown (` ```mermaid ` code blocks) are rendered client-side via the `mermaid` library.
 
@@ -81,7 +82,7 @@ Mermaid diagrams in markdown (` ```mermaid ` code blocks) are rendered client-si
 
 ### Adding a New Page
 
-1. Create the markdown file in `docs/` and copy it to `frontend/public/docs/`
+1. Create the markdown file in `frontend/public/docs/`
 2. Create a page component in `frontend/src/pages/` (one-liner using `MarkdownRenderer`)
 3. Add a `<Route>` in `App.tsx` — use `/appendices/<slug>` for appendix pages
 4. Add a nav entry in `Header.tsx`'s `navItems` array (or into the appendices `<details>` dropdown)
