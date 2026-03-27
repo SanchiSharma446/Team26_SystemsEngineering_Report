@@ -33,7 +33,7 @@ The central area displays the chat interface and the dashboard, selectable by th
 		<ul>
 			<li>Add Farm: Select the location and boundary of your farm to provide location context.</li>
 			<li>Weather Data: View current weather conditions and forecasts for your farm.</li>
-			<li>Drone Monitoring: Upload and analyze drone imagery of your farm.</li>
+			<li>Drone Monitoring: Upload and analyse drone imagery of your farm.</li>
 			<li>Satellite Imagery: View satellite image analysis of your farm.</li>
 			<li>Web Search Toggle: Enable or disable web search functionality.</li>
 		</ul>
@@ -89,13 +89,13 @@ The web search toggle enables or disables web search for chatbot responses, allo
 
 ![Drone imagery upload and result](/docs/images/drone_image_result.png)
 
-The drone imagery analysis interface lets you upload and analyze drone-captured farm images.
+The drone imagery analysis interface lets you upload and analyse drone-captured farm images.
 
 Choose the analysis type and provide the required image inputs (for example RGB and NIR). Images are sent to the backend for processing and then shown in the results view.
 
 ![Drone processing result](/docs/images/drone_image_result.png)
 
-From the interface header, you can open gallery view to browse and date captured images for better organization.
+From the interface header, you can open gallery view to browse and date captured images for better organisation.
 
 ![Drone image gallery](/docs/images/drone_image_gallery.png)
 

@@ -95,17 +95,17 @@ graph TD
     SR --> Sat
 ```
 
-**Authentication Page** — Login and registration forms. On successful authentication, a JWT is stored in `localStorage` and the user is redirected to the main application.
+**Authentication Page** - Login and registration forms. On successful authentication, a JWT is stored in `localStorage` and the user is redirected to the main application.
 
-**Chat View** — Default view. Displays the message history with markdown rendering, inline Recharts charts, colour-coded task cards, and source citations. The input area includes a text field and an internet search toggle.
+**Chat View** - Default view. Displays the message history with markdown rendering, inline Recharts charts, colour-coded task cards, and source citations. The input area includes a text field and an internet search toggle.
 
-**Dashboard View** — Accessible via a tab. Aggregates 5-day weather forecast, seasonal context, active tasks from chat responses, and a field health NDVI chart from drone imagery history.
+**Dashboard View** - Accessible via a tab. Aggregates 5-day weather forecast, seasonal context, active tasks from chat responses, and a field health NDVI chart from drone imagery history.
 
-**Left Sidebar** — Document management panel. Supports file upload (click or drag-and-drop) for `.md`, `.pdf`, `.txt`, `.csv`, and `.json` files. Lists uploaded files with type icons and deletion controls.
+**Left Sidebar** - Document management panel. Supports file upload (click or drag-and-drop) for `.md`, `.pdf`, `.txt`, `.csv`, and `.json` files. Lists uploaded files with type icons and deletion controls.
 
-**Right Sidebar** — Toolbox with buttons for Farm Location, Weather, Drone Monitoring, Satellite Imagery, and Web Search toggle. Each button opens its corresponding modal overlay.
+**Right Sidebar** - Toolbox with buttons for Farm Location, Weather, Drone Monitoring, Satellite Imagery, and Web Search toggle. Each button opens its corresponding modal overlay.
 
-**Modal Overlays** — Full-screen overlays for interactive tools: farm polygon drawing on a satellite map, weather forecast display, drone image upload and gallery, and satellite NDVI viewer.
+**Modal Overlays** - Full-screen overlays for interactive tools: farm polygon drawing on a satellite map, weather forecast display, drone image upload and gallery, and satellite NDVI viewer.
 
 ---
 
@@ -249,11 +249,11 @@ The `CrescoAgent` pre-builds two LangGraph agents at initialisation: `_agent_wit
 
 FastAPI's `Depends()` mechanism injects shared resources into route handlers:
 
-- `get_db_pool(request)` — extracts the async connection pool from `app.state`
-- `get_agent_dep(request)` — passes the checkpointer from `app.state` to `get_agent()`
-- `get_current_user(credentials)` — validates the JWT Bearer token and returns user identity
-- `get_current_admin(current_user)` — chains on `get_current_user` and enforces admin role
-- `get_settings()` — injects the cached settings instance
+- `get_db_pool(request)` - extracts the async connection pool from `app.state`
+- `get_agent_dep(request)` - passes the checkpointer from `app.state` to `get_agent()`
+- `get_current_user(credentials)` - validates the JWT Bearer token and returns user identity
+- `get_current_admin(current_user)` - chains on `get_current_user` and enforces admin role
+- `get_settings()` - injects the cached settings instance
 
 This allows routes to declare their dependencies declaratively and enables tests to override them via `app.dependency_overrides`.
 
@@ -303,7 +303,7 @@ CREATE TABLE farm_data (
 
 The `nodes` column stores the farm polygon boundary as a JSONB array of `{lat, lng}` objects. The `weather` column caches the most recent OpenWeatherMap response (current conditions and 5-day forecast) to make it available to the agent's weather tool without an API call.
 
-**LangGraph Checkpointer Tables** — Auto-created by `AsyncPostgresSaver.setup()`. Stores serialised conversation state (all messages, tool calls, and tool responses) keyed by `thread_id`, enabling conversation persistence across server restarts.
+**LangGraph Checkpointer Tables** - Auto-created by `AsyncPostgresSaver.setup()`. Stores serialised conversation state (all messages, tool calls, and tool responses) keyed by `thread_id`, enabling conversation persistence across server restarts.
 
 ### 6.2 ChromaDB
 
@@ -364,7 +364,7 @@ Document scoping uses the `user_id` metadata field. Shared knowledge base docume
 | react-markdown                  | 10.1      | Markdown rendering for AI responses                 |
 | remark-gfm + remark-math        | 4.0, 6.0  | GitHub Flavoured Markdown and math notation plugins |
 | rehype-katex + katex            | 7.0, 0.16 | LaTeX math typesetting                              |
-| @turf/area + @turf/helpers      | —         | GeoJSON polygon area calculation                    |
+| @turf/area + @turf/helpers      | -         | GeoJSON polygon area calculation                    |
 | lucide-react                    | 0.562     | Icon library                                        |
 | vitest + @testing-library/react | 4.0, 16.3 | Unit testing framework                              |
 

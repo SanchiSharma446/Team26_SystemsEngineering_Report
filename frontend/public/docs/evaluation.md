@@ -2,7 +2,7 @@
 
 ## 1. Summary of Achievements
 
-### 1.1 Achievement Table — Functional Requirements
+### 1.1 Achievement Table - Functional Requirements
 
 | ID    | Requirement                                                                      | Priority | Status      | Contributors             |
 | ----- | -------------------------------------------------------------------------------- | -------- | ----------- | ------------------------ |
@@ -21,7 +21,7 @@
 | FR-13 | Streaming responses, voice input, and PDF export                                 | Could    | Not Started | —                        |
 | FR-14 | Native mobile app, collaborative sessions, farm software integration, custom LLM | Won't    | —           | —                        |
 
-### 1.2 Achievement Table — Non-Functional Requirements
+### 1.2 Achievement Table - Non-Functional Requirements
 
 | ID     | Requirement                                                              | Priority | Status   | Contributors             |
 | ------ | ------------------------------------------------------------------------ | -------- | -------- | ------------------------ |
