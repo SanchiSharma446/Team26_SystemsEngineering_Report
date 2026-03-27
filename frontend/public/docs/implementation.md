@@ -197,9 +197,9 @@ When a user deletes a file, the backend removes both the file from disk and its 
 
 ### 4.1 Interactive Map
 
-The `satellite.jsx` component renders a Leaflet map with a satellite tile layer. Users define their farm boundary by placing polygon vertices as draggable markers. Ghost markers appear at midpoints between vertices, allowing users to add new points by clicking. The polygon area is computed client-side using `@turf/area`.
+The `satellite.jsx` component renders a Leaflet map with a satellite layer. Users select their farm boundary by placing draggable markers at the borders. Ghost markers appear at midpoints between vertices, allowing users to add new points by clicking. A center marker allows to move the entire polygon. The polygon area is computed client-side using `@turf/area`.
 
-A geocoding search bar lets users find locations by address or postcode. The search request is proxied through the backend (`GET /geocode/search`) to Nominatim, keeping the request server-side.
+A geocoding search bar lets users find locations by address or postcode. The search request is handled through the backend (`GET /geocode/search`) to Nominatim, keeping the request server-side. 
 
 ### 4.2 Weather Fetching
 
@@ -317,7 +317,7 @@ The `DroneTimeSeriesSection.jsx` component aggregates NDVI values across a user'
 
 ### 7.1 Copernicus Integration
 
-The `POST /satellite-image` endpoint fetches Sentinel-2 satellite imagery from the Copernicus Data Space. The backend authenticates with Copernicus using OAuth2 client credentials, constructs a bounding box around the user's farm coordinates, and requests both a true-colour (RGB) and a near-infrared band image for the most recent cloud-free acquisition.
+The `POST /satellite-image` endpoint fetches Sentinel-2 satellite imagery from the Copernicus API. The backend authenticates with Copernicus using OAuth2 client credentials, then uses the farms coordinates to create a bounding box and requests both an RGB and near-infrared band image from the nearest cloud free day.
 
 ```python
 # scripts/satellite_image.py
@@ -330,11 +330,11 @@ def get_access_token(client_id, client_secret):
     return response.json()["access_token"]
 ```
 
-The returned GeoTIFF images are converted to PNG via Pillow and then processed through the same NDVI computation pipeline used for drone images. The result is streamed back to the frontend as a PNG response.
+The returned GeoTIFF images are converted to PNG and then processed through the same NDVI pipeline used for drone images. The result is streamed back to the frontend as a PNG response.
 
 ### 7.2 Frontend Display
 
-The `satellite_imagery.jsx` component triggers the satellite image fetch, displays a loading state while the backend processes the request, and renders the returned NDVI image. The farm location must be set before satellite imagery is available, as the backend reads coordinates from the user's `farm_data` record.
+The `satellite_imagery.jsx` component triggers the satellite image fetch, displays and renders the returned NDVI image. The farm location must be set before satellite imagery is available, as the backend reads coordinates from the user's `farm_data` record.
 
 ---
 
@@ -344,7 +344,7 @@ The `satellite_imagery.jsx` component triggers the satellite image fetch, displa
 
 ### 8.1 Markdown and LaTeX
 
-AI responses are rendered using `react-markdown` with three plugins: `remark-gfm` for GitHub Flavoured Markdown (tables, strikethrough, task lists), `remark-math` for math notation parsing, and `rehype-katex` for LaTeX rendering. This allows the agent to include formatted tables, equations, and structured text in its responses.
+AI responses are rendered with `react-markdown` with three plugins: `remark-gfm` for GitHub Flavoured Markdown (which draws tables, strikethrough, task lists etc.), `remark-math` for math notation parsing, and `rehype-katex` for LaTeX rendering. This allows the response to contain better rendering, including tables, equations and structured text if necessary.
 
 ```jsx
 // layout/ChatArea.jsx
@@ -359,9 +359,9 @@ AI responses are rendered using `react-markdown` with three plugins: `remark-gfm
 
 ### 8.2 Inline Chart Rendering
 
-Charts are rendered inline within the message text at the position specified by the agent. The `ChatArea` component sorts charts by their `position` property, splits the message text at each chart position, and interleaves markdown segments with `ChartRenderer` components.
+Responses can also contain inline charts at the position specifiec by the agent. When the response is recieved by the backend, the chart (which is written in a `---CHART---` JSON block) is extracted and its position in the text stored. this is sent to the frontend as a response object, until rendering, where the response is split, and the charts are inserted at the appropriate place.
 
-The `ChartRenderer` component wraps Recharts and supports four chart types: bar, stacked bar, line (with multi-series support), and pie/donut. The chart type, data, and axis keys are specified by the agent's `---CHART---` JSON block.
+The `ChartRenderer` uses Recharts to draw graphs, supporting 4 char types specified in the parameters: line, bar, stacked bar and pie. the type, data and axes are specified in the agent's `---CHART---` JSON block. 
 
 ```jsx
 // ChartRenderer.jsx
