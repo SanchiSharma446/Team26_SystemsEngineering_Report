@@ -73,17 +73,18 @@ Mermaid diagrams in markdown (` ```mermaid ` code blocks) are rendered client-si
 
 ### Frontend Structure
 
-- **Routing**: `HashRouter` in `main.tsx` -> `App.tsx` defines all `<Route>` entries
-- **Pages**: Each page in `src/pages/` is a thin wrapper that passes a `fileUrl` (e.g., `/docs/system-design.md`) and `title` to `MarkdownRenderer`
-- **Layout**: `Header.tsx` (nav bar with `NavLink`), `Footer.tsx` (static footer), both rendered by `App.tsx` around the routed content
-- **`MarkdownRenderer`** (`src/components/MarkdownRenderer.tsx`): The core component — fetches a markdown file URL, renders it with react-markdown, and intercepts ` ```mermaid ` code blocks to render them as diagrams via the `Mermaid` sub-component
+- **Routing**: `HashRouter` in `main.tsx` -> `App.tsx` defines all `<Route>` entries. Appendices live under `/appendices/*` (e.g. `/appendices/user-manual`). There is a backward-compat redirect from `/user-manual` → `/appendices/user-manual`.
+- **Pages**: Each page in `src/pages/` is a thin wrapper that passes a `fileUrl` (e.g., `/docs/system-design.md`) and `title` to `MarkdownRenderer`. `Home.tsx` is the exception — it is a fully hardcoded component (hero, feature cards, team info, tech stack).
+- **Layout**: `Header.tsx` (nav bar with `NavLink` + `<details>` dropdown for Appendices), `Footer.tsx` (static footer), both rendered by `App.tsx` around the routed content.
+- **`MarkdownRenderer`** (`src/components/MarkdownRenderer.tsx`): The core component — fetches a markdown file URL, renders it with react-markdown, and intercepts ` ```mermaid ` code blocks. Regular Mermaid diagrams render via the `Mermaid` sub-component; sequence diagrams (detected by `/^\s*sequenceDiagram\b/m`) render via `SequenceDiagram`, which wraps them in a collapsible `<details>` element.
+- **`TableOfContents`** (`src/components/TableOfContents.tsx`): Renders a responsive sticky sidebar on desktop (hidden on mobile <768px). Auto-generates entries from h1/h2/h3 headings in the rendered markdown DOM. Always shows the top 2 heading levels; deeper levels collapse. Uses `IntersectionObserver` for scroll-spy. Shown by `MarkdownRenderer` when 2+ headings are present.
 
 ### Adding a New Page
 
 1. Create the markdown file in `docs/` and copy it to `frontend/public/docs/`
 2. Create a page component in `frontend/src/pages/` (one-liner using `MarkdownRenderer`)
-3. Add a `<Route>` in `App.tsx`
-4. Add a nav entry in `Header.tsx`'s `navItems` array
+3. Add a `<Route>` in `App.tsx` — use `/appendices/<slug>` for appendix pages
+4. Add a nav entry in `Header.tsx`'s `navItems` array (or into the appendices `<details>` dropdown)
 
 ### Root `package.json`
 
