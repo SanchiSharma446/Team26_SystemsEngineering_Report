@@ -67,4 +67,4 @@ A few such examples are included below.
 
 ## 5. Conclusion
 
-Overall, we managed to reach over 90% test coverage on our frontend and backend, with comprehensive unit tests and user acceptance testing ensuring our final product worked largely how we wanted it to. We can proudly say Cresco is robust and reliable, with no known bugs remaining at the time of submission.
+Overall, we managed to reach over 75% test coverage on our frontend and backend, with comprehensive unit tests and user acceptance testing ensuring our final product worked largely how we wanted it to. We can proudly say Cresco is robust and reliable, with few known bugs remaining at the time of submission.
