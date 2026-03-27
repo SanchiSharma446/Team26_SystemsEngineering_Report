@@ -74,7 +74,7 @@ GOOGLE_API_KEY=...
 ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-**Ollama:** no API key required — runs locally.
+**Ollama:** no API key required - runs locally.
 
 ### Optional Variables
 

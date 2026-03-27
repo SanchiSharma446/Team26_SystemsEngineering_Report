@@ -43,7 +43,7 @@ async def get_current_user(credentials = Depends(HTTPBearer())):
     return {"user_id": payload["sub"], "username": payload["username"],
             "is_admin": payload.get("is_admin", False)}
 
-# routes.py — usage
+# routes.py - usage
 @router.post("/chat")
 async def chat(request: ChatRequest, current_user: dict = Depends(get_current_user)):
     ...
@@ -77,11 +77,11 @@ If any API call returns 401 or 403, the frontend automatically clears the token 
 
 The `CrescoAgent` class wraps a LangGraph agent with three tools:
 
-1. **`retrieve_agricultural_info`** — searches the ChromaDB vector store for relevant documents, scoped to the shared knowledge base and the current user's uploads via a metadata filter.
-2. **`get_weather_data`** — reads the user's cached weather and farm location from the PostgreSQL `farm_data` table.
-3. **`TavilySearch`** — performs real-time internet search (conditionally included).
+1. **`retrieve_agricultural_info`** - searches the ChromaDB vector store for relevant documents, scoped to the shared knowledge base and the current user's uploads via a metadata filter.
+2. **`get_weather_data`** - reads the user's cached weather and farm location from the PostgreSQL `farm_data` table.
+3. **`TavilySearch`** - performs real-time internet search (conditionally included).
 
-The agent pre-builds two LangGraph graphs at initialisation — one with internet search enabled and one without. The `chat()` method selects the appropriate graph at runtime based on the user's toggle, avoiding graph reconstruction on every request.
+The agent pre-builds two LangGraph graphs at initialisation - one with internet search enabled and one without. The `chat()` method selects the appropriate graph at runtime based on the user's toggle, avoiding graph reconstruction on every request.
 
 ```python
 # agent/agent.py
@@ -104,7 +104,7 @@ class CrescoAgent:
 The retrieval tool uses ChromaDB's metadata filtering to return only shared knowledge base documents and the current user's uploads. Shared documents are tagged with `user_id = "__shared__"`, while user uploads are tagged with the user's UUID.
 
 ```python
-# agent/agent.py — inside _build_agent()
+# agent/agent.py - inside _build_agent()
 @tool(response_format="content_and_artifact")
 def retrieve_agricultural_info(query: str, config: RunnableConfig):
     user_id = config["configurable"].get("user_id", "")
@@ -158,7 +158,7 @@ The `POST /upload` endpoint accepts a multipart file upload, validates the file 
 
 ### 3.2 Chunking and Indexing
 
-Documents are loaded using the appropriate LangChain loader — `TextLoader` for text-based files and `PyPDFLoader` for PDFs. The `RecursiveCharacterTextSplitter` splits them into chunks of 1500 characters with 200-character overlap, using markdown-aware separators (section breaks, headers, paragraphs).
+Documents are loaded using the appropriate LangChain loader - `TextLoader` for text-based files and `PyPDFLoader` for PDFs. The `RecursiveCharacterTextSplitter` splits them into chunks of 1500 characters with 200-character overlap, using markdown-aware separators (section breaks, headers, paragraphs).
 
 ```python
 # rag/document_loader.py
@@ -169,7 +169,7 @@ splitter = RecursiveCharacterTextSplitter(
 chunks = splitter.split_documents(documents)
 ```
 
-Each chunk is tagged with metadata — `filename`, `category` (auto-detected from filename keywords), `user_id`, and `chunk_index` — then added to ChromaDB in batches of 100 with a 1-second delay between batches for rate limit protection.
+Each chunk is tagged with metadata - `filename`, `category` (auto-detected from filename keywords), `user_id`, and `chunk_index` - then added to ChromaDB in batches of 100 with a 1-second delay between batches for rate limit protection.
 
 ```python
 # rag/indexer.py
@@ -197,7 +197,7 @@ When a user deletes a file, the backend removes both the file from disk and its 
 
 ### 4.1 Interactive Map
 
-The `satellite.jsx` component renders a Leaflet map with a satellite layer. Users select their farm boundary by placing draggable markers at the borders. Ghost markers appear at midpoints between vertices, allowing users to add new points by clicking. A center marker allows to move the entire polygon. The polygon area is computed client-side using `@turf/area`.
+The `satellite.jsx` component renders a Leaflet map with a satellite layer. Users select their farm boundary by placing draggable markers at the borders. Ghost markers appear at midpoints between vertices, allowing users to add new points by clicking. A centre marker allows you to move the entire polygon. The polygon area is computed client-side using `@turf/area`.
 
 A geocoding search bar lets users find locations by address or postcode. The search request is handled through the backend (`GET /geocode/search`) to Nominatim, keeping the request server-side. 
 
@@ -284,9 +284,9 @@ A `docker-compose.yml` at the project root provides a PostgreSQL 17 database for
 
 ### 6.1 Vegetation Index Computation
 
-The `POST /droneimage` endpoint accepts two image files — an RGB image and a near-infrared (NIR) image — and a query parameter selecting the vegetation index type (`ndvi`, `evi`, or `savi`).
+The `POST /droneimage` endpoint accepts two image files - an RGB image and a near-infrared (NIR) image - and a query parameter selecting the vegetation index type (`ndvi`, `evi`, or `savi`).
 
-Rasterio reads the individual colour bands from each image and normalises pixel values to the 0–1 range. The system ensures dimension alignment by cropping to the smallest common dimensions when images are slightly misaligned. The selected vegetation index is then computed per-pixel using NumPy array operations.
+Rasterio reads the individual colour bands from each image and normalises pixel values to the 0-1 range. The system ensures dimension alignment by cropping to the smallest common dimensions when images are slightly misaligned. The selected vegetation index is then computed per-pixel using NumPy array operations.
 
 ```python
 # scripts/drone_image.py
