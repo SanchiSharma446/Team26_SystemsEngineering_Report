@@ -41,7 +41,7 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 
 ### 1.3 Known Bugs
 
-No known bugs remain at the time of submission. The historical message rendering issue (where tool call messages, system messages, and empty messages were occasionally surfaced in the chat display) has been resolved.
+No known bugs remain at the time of submission.
 
 ### 1.4 Individual Contributions for System Artefacts
 
