@@ -41,8 +41,7 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 
 ### 1.3 Known Bugs
 
-1. **Historical message rendering:** When loading conversation history, the frontend occasionally renders tool call messages, system messages, and empty messages that should be filtered out, cluttering the chat display.
-2. **Document serialization workaround:** The agent uses a short-term fix for converting Document objects to dictionaries during JSON serialization of uploaded file retrieval results (`agent.py`, line 288). This works correctly but may mask a deeper issue in how LangChain Document objects are passed between tools.
+No known bugs remain at the time of submission.
 
 ### 1.4 Individual Contributions for System Artefacts
 
