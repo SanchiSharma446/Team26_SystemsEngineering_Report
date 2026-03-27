@@ -41,6 +41,15 @@ function Mermaid({ chart }: { chart: string }) {
   return <div className="mermaid-diagram" ref={ref} />;
 }
 
+function SequenceDiagram({ chart }: { chart: string }) {
+  return (
+    <details className="sequence-diagram" open={false}>
+      <summary>Sequence Diagram</summary>
+      <Mermaid chart={chart} />
+    </details>
+  );
+}
+
 interface MarkdownRendererProps {
   fileUrl: string;
   title?: string;
@@ -77,12 +86,19 @@ export default function MarkdownRenderer({ fileUrl, title }: MarkdownRendererPro
       // Handle the 'node' prop manually mapping to any to avoid unused prop
       const typedProps = props as any;
       if (typedProps.node) {
-         // just access it to satisfy strictly configured linters if needed, or just delete it
+        // just access it to satisfy strictly configured linters if needed, or just delete it
       }
-      
+
       const match = /language-(\w+)/.exec(className || '');
       if (match && match[1] === 'mermaid') {
-        return <Mermaid chart={String(children).replace(/\n$/, '')} />;
+        const chart = String(children).replace(/\n$/, '');
+        const isSequenceDiagram = /^\s*sequenceDiagram\b/m.test(chart);
+
+        if (isSequenceDiagram) {
+          return <SequenceDiagram chart={chart} />;
+        }
+
+        return <Mermaid chart={chart} />;
       }
       return <code {...rest} className={className}>{children}</code>;
     }
