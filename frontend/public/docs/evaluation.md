@@ -128,7 +128,7 @@ Backend code quality is enforced by Ruff linting (rules E, F, I, N, W with 100-c
 
 The codebase is modular: the backend separates concerns into agent, api, auth, rag, and db modules, each with clear responsibilities. Testing conventions are formalised — all backend tests use class-based organisation with `asyncio_mode = "auto"`, and a comprehensive fixture system in `conftest.py` handles client setup, auth bypassing, and external service mocking.
 
-The project has 379 commits across 4 contributors with a PR-based workflow. Pull requests are numbered and merged via GitHub, providing a clear audit trail.
+Pull requests are numbered and merged via GitHub, providing a clear audit trail.
 
 Frontend test coverage is not enforced by the CI pipeline (only backend has `fail_under`), which could allow frontend regressions to go undetected.
 

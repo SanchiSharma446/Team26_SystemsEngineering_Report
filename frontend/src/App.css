@@ -53,11 +53,18 @@
 }
 
 .site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-secondary);
   letter-spacing: -0.025em;
   text-decoration: none;
+}
+
+.site-title-icon {
+  color: var(--color-primary);
 }
 
 .hamburger-btn {
@@ -242,6 +249,12 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 1rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .footer-column p {
