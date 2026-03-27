@@ -1,4 +1,4 @@
-import { useEffect, type CSSProperties } from 'react'
+import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { NavLink } from 'react-router-dom'
 import {
   MessageSquare,
@@ -10,6 +10,7 @@ import {
   Satellite,
   Sprout,
   ArrowRight,
+  X,
 } from 'lucide-react'
 import dashboard from '../assets/dashboard.png'
 import fullPage from '../assets/full_page.png'
@@ -63,7 +64,7 @@ const team = [
   {
     name: 'Shuaiting Li',
     initials: 'SL',
-    color: '#2563eb',
+    color: '#059669',
     role: 'Backend Architecture, Agent, CI/CD',
     email: 'shuaiting.li.23@ucl.ac.uk',
     github: 'https://github.com/shuaiting-li',
@@ -71,8 +72,8 @@ const team = [
   },
   {
     name: 'Sagar Nair',
-    initials: 'S',
-    color: '#059669',
+    initials: 'SN',
+    color: '#0595ff',
     role: 'Frontend Testing, Shared UI Components',
     email: 'sagar.nair.24@ucl.ac.uk',
     github: 'https://github.com/IndigoSamurott',
@@ -89,7 +90,7 @@ const team = [
   },
   {
     name: 'Sanchi Sharma',
-    initials: 'S',
+    initials: 'SS',
     color: '#dc2626',
     role: 'Drone Features, Account Management, Client Liaison',
     email: 'sanchi.sharma.24@ucl.ac.uk',
@@ -120,7 +121,52 @@ const partners = [
   { src: azureLogo, alt: 'Microsoft Azure logo' },
 ]
 
+function GitHubIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2C6.477 2 2 6.586 2 12.256c0 4.53 2.865 8.373 6.839 9.73.5.095.682-.222.682-.494 0-.244-.009-.891-.014-1.749-2.782.624-3.369-1.374-3.369-1.374-.454-1.183-1.11-1.498-1.11-1.498-.907-.636.069-.623.069-.623 1.003.072 1.531 1.058 1.531 1.058.892 1.566 2.341 1.114 2.91.852.091-.666.349-1.114.635-1.37-2.221-.261-4.555-1.141-4.555-5.078 0-1.122.389-2.039 1.029-2.758-.103-.261-.446-1.312.098-2.736 0 0 .84-.276 2.75 1.053a9.2 9.2 0 0 1 2.504-.35c.849.004 1.705.12 2.504.35 1.909-1.329 2.748-1.053 2.748-1.053.546 1.424.203 2.475.1 2.736.64.719 1.028 1.636 1.028 2.758 0 3.947-2.338 4.814-4.566 5.07.359.317.679.941.679 1.897 0 1.369-.013 2.472-.013 2.809 0 .274.18.593.688.492C19.137 20.624 22 16.783 22 12.256 22 6.586 17.523 2 12 2Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+function LinkedInIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.94v5.666H9.351V9h3.414v1.561h.046c.476-.9 1.637-1.85 3.369-1.85 3.602 0 4.268 2.371 4.268 5.455v6.286ZM5.337 7.433a2.067 2.067 0 1 1 0-4.133 2.067 2.067 0 0 1 0 4.133ZM7.119 20.452H3.553V9h3.566v11.452Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
 export default function Home() {
+  const [expandedImage, setExpandedImage] = useState<{ src: string; alt: string } | null>(null)
+
+  const expandedImageAlt = useMemo(() => {
+    if (!expandedImage) return ''
+    return expandedImage.alt
+  }, [expandedImage])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -145,6 +191,17 @@ export default function Home() {
       observer.disconnect()
     }
   }, [])
+
+  useEffect(() => {
+    if (!expandedImage) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setExpandedImage(null)
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [expandedImage])
 
   const revealStyle = (delay: number): CSSProperties => ({
     ['--reveal-delay' as string]: `${delay}ms`,
@@ -246,7 +303,20 @@ export default function Home() {
               className="screenshot-card reveal-on-scroll"
               style={revealStyle(index * 90)}
             >
-              <img src={s.src} alt={s.label} />
+              <img
+                src={s.src}
+                alt={s.label}
+                className="expandable-image"
+                role="button"
+                tabIndex={0}
+                onClick={() => setExpandedImage({ src: s.src, alt: s.label })}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    setExpandedImage({ src: s.src, alt: s.label })
+                  }
+                }}
+              />
               <div className="screenshot-label">{s.label}</div>
             </div>
           ))}
@@ -270,7 +340,6 @@ export default function Home() {
                 {m.initials}
               </div>
               <h3>{m.name}</h3>
-              <p className="team-role">{m.role}</p>
               <div className="team-links">
                 <a
                   href={`mailto:${m.email}`}
@@ -286,7 +355,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span>GH</span>
+                  <GitHubIcon size={16} />
                 </a>
                 <a
                   href={m.linkedin}
@@ -295,7 +364,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span>in</span>
+                  <LinkedInIcon size={16} />
                 </a>
               </div>
             </div>
@@ -310,7 +379,20 @@ export default function Home() {
           Development progress across the project lifecycle
         </p>
         <div className="gantt-placeholder reveal-on-scroll">
-          <img src={gantt} alt="Cresco project timeline Gantt chart" className="gantt-image" />
+          <img
+            src={gantt}
+            alt="Cresco project timeline Gantt chart"
+            className="gantt-image expandable-image"
+            role="button"
+            tabIndex={0}
+            onClick={() => setExpandedImage({ src: gantt, alt: 'Cresco project timeline Gantt chart' })}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                setExpandedImage({ src: gantt, alt: 'Cresco project timeline Gantt chart' })
+              }
+            }}
+          />
         </div>
       </section>
 
@@ -348,6 +430,33 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {expandedImage ? (
+        <div
+          className="image-lightbox"
+          role="dialog"
+          aria-label={`Expanded image: ${expandedImageAlt}`}
+          onClick={() => setExpandedImage(null)}
+        >
+          <button
+            type="button"
+            className="image-lightbox-close"
+            aria-label="Close expanded image"
+            onClick={(event) => {
+              event.stopPropagation()
+              setExpandedImage(null)
+            }}
+          >
+            <X size={18} />
+          </button>
+          <img
+            src={expandedImage.src}
+            alt={expandedImage.alt}
+            className="image-lightbox-image"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      ) : null}
     </div>
   )
 }

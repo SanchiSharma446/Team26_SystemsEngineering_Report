@@ -222,6 +222,10 @@
   border-radius: 0;
 }
 
+.expandable-image {
+  cursor: zoom-in;
+}
+
 .screenshot-label {
   padding: 0.75rem 1rem;
   font-size: 0.85rem;
@@ -296,12 +300,6 @@
   margin-bottom: 0.25rem;
 }
 
-.team-card .team-role {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-}
-
 .team-links {
   margin-top: 0.9rem;
   display: flex;
@@ -354,6 +352,47 @@
   height: auto;
   display: block;
   border-radius: calc(var(--radius-lg) - 0.25rem);
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.image-lightbox-image {
+  max-width: min(1100px, 92vw);
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background: var(--color-surface);
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image-lightbox-close:hover {
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 /* Tech Stack */
