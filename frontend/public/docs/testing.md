@@ -18,17 +18,19 @@ Overall our testing strategy was effective in identifying and resolving issues t
 
 ### 2.1 Unit Testing Results
 
-Unit tests were conducted for all individual features, and all tests passed successfully. We implemented these tests using pytest.
+Unit tests were conducted for all individual features, and all tests passed successfully. We successfully exceeded achieeved our minimum test coverage of 80%
 
-> *This section is being expanded with detailed test results and coverage reports.*
+Our backend tests use pytest, testing core logic and apis. These are mostly collected by class, using temp databases and mocks to simulate full functionality 
 
-### 2.2 Integration Testing Results
+to run backend tests use:
 
-Integration tests were performed to validate the interaction between different components and modules. All integration tests passed successfully, confirming that the various parts of the application worked together seamlessly.
+``` uv run pytest ```
 
-> *This section is being expanded with detailed integration test results.*
+Frontend tests use Vitest and the React testing library to focus on ui behaviour. It tests interaction flows and failure handling 
 
----
+to run frontend tests use:
+
+``` npm test  ```
 
 ## 3. Manual Testing Results
 
@@ -36,18 +38,33 @@ Manual testing sessions were conducted to evaluate the user experience and overa
 
 We discovered several UI bugs and validation issues during manual testing, which were subsequently addressed and resolved.
 
-> *This section is being expanded with specific findings and resolutions.*
+---
+
+### 3.1 Integration Testing Results
+
+Integration tests were manually performed to validate the interaction between different components and modules. All integration tests passed successfully, confirming that the various parts of the application worked together seamlessly.
+
+We repeated these tests every time a new component was added, or any component link was changed, ensuring the whole project works together as expected
+
 
 ---
 
+
 ## 4. User Acceptance Testing
 
-User Acceptance Testing was conducted with our client and a group of our peers to ensure the application was up to standard. They tested various scenarios and provided feedback, and we watched to see how they interacted with the app. This helped us find areas for improvement; for example, we found many users were not aware of the internet search toggle, so we added a larger button in the sidebar.
+User Acceptance Testing was conducted with our client and a group of our peers to ensure the application was up to standard. They tested various scenarios and provided feedback, and we watched to see how they interacted with the app. This helped us find areas for improvement.
 
-> *This section is being expanded with detailed UAT feedback and outcomes.*
+
+A few such examples are included below.
+
+| # | Severity | User | Problem | Solution |
+|---|---|---|---|---|
+| 1 | High | Classmate | On mobile, the message box could fall off-screen and the sidebars took up too much space. | Made both sidebars collapsible to preserve usable chat space on smaller screens. |
+| 2 | Medium | Client | It was unclear that the small globe icon beside the search bar controlled internet search. | Added a larger and more visible internet-toggle button in the toolbox/sidebar. |
+| 3 | High | Classmate | Users could send a message immediately after uploading a document, before indexing completed, which led to uninformed responses. | Enforced a wait state while files are uploading and indexing so responses are based on fully indexed content. |
 
 ---
 
 ## 5. Conclusion
 
-> *This section is being completed.*
+Overall, we managed to reach over 90% test coverage on our frontend and backend, with comprehensive unit tests and user acceptance testing ensuring our final product worked largely how we wanted it to. We can proudly say Cresco is robust and reliable, with no known bugs remaining at the time of submission.

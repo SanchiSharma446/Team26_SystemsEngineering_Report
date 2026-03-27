@@ -49,31 +49,30 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 
 | Work packages             | Sagar | Sanchi | Shuaiting | Vivek |
 | ------------------------- | ----- | ------ | --------- | ----- |
-| Research and Experiments  | 25%   | 25%    | 25%       | 25%   |
-| UI Design (if applicable) | 25%   | 25%    | 25%       | 25%   |
-| Coding                    | 25%   | 25%    | 25%       | 25%   |
-| Testing                   | 25%   | 25%    | 25%       | 25%   |
-| Overall contribution      | 25%   | 25%    | 25%       | 25%   |
+| Research and Experiments  | 10%   | 25%    | 45%       | 20%   |
+| UI Design                 | 30%   | 20%    | 10%       | 40%   |
+| Coding                    | 15%   | 20%    | 40%       | 25%   |
+| Testing                   | 40%   | 15%    | 25%       | 20%   |
+| Overall contribution      | 20%   | 25%    | 35%       | 20%   |
 
 ### 1.5 Individual Contributions for Report Website
 
 | Work packages               | Sagar | Sanchi | Shuaiting | Vivek |
 | --------------------------- | ----- | ------ | --------- | ----- |
-| Website Template and Setup  | 25%   | 25%    | 25%       | 25%   |
-| Home                        | 25%   | 25%    | 25%       | 25%   |
-| Video                       | 25%   | 25%    | 25%       | 25%   |
-| Requirement                 | 25%   | 25%    | 25%       | 25%   |
-| Research                    | 25%   | 25%    | 25%       | 25%   |
-| Algorithm (if applicable)   | 25%   | 25%    | 25%       | 25%   |
-| UI Design (if applicable)   | 25%   | 25%    | 25%       | 25%   |
-| System Design               | 25%   | 25%    | 25%       | 25%   |
-| Implementation              | 25%   | 25%    | 25%       | 25%   |
-| Testing                     | 25%   | 25%    | 25%       | 25%   |
-| Evaluation and Future Work  | 25%   | 25%    | 25%       | 25%   |
-| User and Deployment Manuals | 25%   | 25%    | 25%       | 25%   |
-| Legal Issues                | 25%   | 25%    | 25%       | 25%   |
-| Blog and Monthly Video      | 25%   | 25%    | 25%       | 25%   |
-| Overall contribution        | 25%   | 25%    | 25%       | 25%   |
+| Website Template and Setup  | 15%   | 15%    | 65%       | 5%    |
+| Home                        | 0%    | 65%    | 25%       | 10%   |
+| Video                       | 80%   | 0%     | 20%       | 0%    |
+| Requirement                 | 0%    | 45%    | 55%       | 0%    |
+| Research                    | 0%    | 70%    | 30%       | 0%    |
+| UI Design                   | 0%    | 15%    | 10%       | 75%   |
+| System Design               | 0%    | 10%    | 85%       | 5%    |
+| Implementation              | 5%    | 20%    | 40%       | 35%   |
+| Testing                     | 10%   | 0%     | 0%        | 90%   |
+| Evaluation and Future Work  | 5%    | 20%    | 65%       | 10%   |
+| User and Deployment Manuals | 5%    | 5%     | 45%       | 45%   |
+| Legal Issues                | 95%   | 5%     | 0%        | 0%    |
+| Blog and Monthly Video      | 0%    | 75%    | 20%       | 5%    |
+| Overall contribution        | 20%   | 25%    | 30%       | 25%   |
 
 ---
 

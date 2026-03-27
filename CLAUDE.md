@@ -4,12 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Team 26 Systems Engineering Report website. It renders markdown documentation as a static website using React + Vite. The authoritative content lives in `docs/` as markdown files; the frontend reads copies from `frontend/public/docs/` at runtime and renders them.
+This is a Team 26 Systems Engineering Report website. It renders markdown documentation as a static website using React + Vite. Markdown content lives in `frontend/public/docs/` and is fetched at runtime.
 
 ## Key Constraints
 
-- **Content source of truth is `docs/`**. Web content must be consistent with `docs/` but does not need to be identical. Some doc sections are still missing — pages gracefully show placeholders when markdown files are not found.
-- **`individual-contribution.md` must NOT be added to the website or committed to git.** It exists locally in `docs/` and `frontend/public/docs/` but should stay untracked.
+- **Content source of truth is `frontend/public/docs/`**. Do not duplicate files into the root `docs/` directory — that directory is only used for files that are not part of the website (e.g. PDFs, individual contribution records).
+- **`individual-contribution.md` must NOT be added to the website or committed to git.** It exists locally in `frontend/public/docs/` but should stay untracked.
+- Some doc sections are still missing — pages gracefully show placeholders when markdown files are not found.
 - **The site must be exportable as a static site navigable from `index.html`.** The frontend uses `HashRouter` (not `BrowserRouter`) to support this — all routes work via `index.html#/path`.
 
 ## Commands
@@ -67,23 +68,24 @@ Common patterns adopted: hero section with project name/tagline, feature card gr
 
 ### Content Pipeline
 
-`docs/*.md` -> copied to `frontend/public/docs/*.md` -> fetched at runtime by `MarkdownRenderer` -> rendered with `react-markdown` + `remark-gfm` + `rehype-raw`
+`frontend/public/docs/*.md` -> fetched at runtime by `MarkdownRenderer` -> rendered with `react-markdown` + `remark-gfm` + `rehype-raw`
 
 Mermaid diagrams in markdown (` ```mermaid ` code blocks) are rendered client-side via the `mermaid` library.
 
 ### Frontend Structure
 
-- **Routing**: `HashRouter` in `main.tsx` -> `App.tsx` defines all `<Route>` entries
-- **Pages**: Each page in `src/pages/` is a thin wrapper that passes a `fileUrl` (e.g., `/docs/system-design.md`) and `title` to `MarkdownRenderer`
-- **Layout**: `Header.tsx` (nav bar with `NavLink`), `Footer.tsx` (static footer), both rendered by `App.tsx` around the routed content
-- **`MarkdownRenderer`** (`src/components/MarkdownRenderer.tsx`): The core component — fetches a markdown file URL, renders it with react-markdown, and intercepts ` ```mermaid ` code blocks to render them as diagrams via the `Mermaid` sub-component
+- **Routing**: `HashRouter` in `main.tsx` -> `App.tsx` defines all `<Route>` entries. Appendices live under `/appendices/*` (e.g. `/appendices/user-manual`). There is a backward-compat redirect from `/user-manual` → `/appendices/user-manual`.
+- **Pages**: Each page in `src/pages/` is a thin wrapper that passes a `fileUrl` (e.g., `/docs/system-design.md`) and `title` to `MarkdownRenderer`. `Home.tsx` is the exception — it is a fully hardcoded component (hero, feature cards, team info, tech stack).
+- **Layout**: `Header.tsx` (nav bar with `NavLink` + `<details>` dropdown for Appendices), `Footer.tsx` (static footer), both rendered by `App.tsx` around the routed content.
+- **`MarkdownRenderer`** (`src/components/MarkdownRenderer.tsx`): The core component — fetches a markdown file URL, renders it with react-markdown, and intercepts ` ```mermaid ` code blocks. Regular Mermaid diagrams render via the `Mermaid` sub-component; sequence diagrams (detected by `/^\s*sequenceDiagram\b/m`) render via `SequenceDiagram`, which wraps them in a collapsible `<details>` element.
+- **`TableOfContents`** (`src/components/TableOfContents.tsx`): Renders a responsive sticky sidebar on desktop (hidden on mobile <768px). Auto-generates entries from h1/h2/h3 headings in the rendered markdown DOM. Always shows the top 2 heading levels; deeper levels collapse. Uses `IntersectionObserver` for scroll-spy. Shown by `MarkdownRenderer` when 2+ headings are present.
 
 ### Adding a New Page
 
-1. Create the markdown file in `docs/` and copy it to `frontend/public/docs/`
+1. Create the markdown file in `frontend/public/docs/`
 2. Create a page component in `frontend/src/pages/` (one-liner using `MarkdownRenderer`)
-3. Add a `<Route>` in `App.tsx`
-4. Add a nav entry in `Header.tsx`'s `navItems` array
+3. Add a `<Route>` in `App.tsx` — use `/appendices/<slug>` for appendix pages
+4. Add a nav entry in `Header.tsx`'s `navItems` array (or into the appendices `<details>` dropdown)
 
 ### Root `package.json`
 

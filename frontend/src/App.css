@@ -9,7 +9,8 @@
 .main-content {
   flex: 1;
   padding: 2rem 1rem;
-  margin-top: var(--header-height); /* Offset for fixed header */
+  margin-top: var(--header-height);
+  /* Offset for fixed header */
   background-color: var(--color-bg);
 }
 
@@ -22,8 +23,15 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Header Styling - Glassmorphic */
@@ -53,11 +61,18 @@
 }
 
 .site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-secondary);
   letter-spacing: -0.025em;
   text-decoration: none;
+}
+
+.site-title-icon {
+  color: var(--color-primary);
 }
 
 .hamburger-btn {
@@ -106,6 +121,8 @@
 
 .dropdown-menu {
   list-style: none;
+  display: flex;
+  flex-direction: column;
   padding: 0.5rem 0;
   margin: 0;
   position: absolute;
@@ -242,6 +259,12 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 1rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .footer-column p {
