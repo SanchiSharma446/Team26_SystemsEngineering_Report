@@ -34,21 +34,17 @@ At the end of each development sprint, a demonstration was shown to the NTT DATA
 
 ## 4. Personas
 
-### Persona 1: Sarah Mitchell — Arable Farmer
+### Persona 1: Small-Scale Farm Owner
 
-Age 42, Norfolk. Farms 280 hectares of winter wheat, spring barley, and oilseed rape. Moderate technology comfort — uses a smartphone and spreadsheets but no AI tools. Sarah wants quick answers to crop disease and spraying timing questions contextualised by her local weather, without searching through PDFs. She would use Cresco daily during the growing season, setting her farm location, checking weather, and uploading soil analysis data.
+![Persona 1 profile](/docs/images/persona11.png)
 
-### Persona 2: James O'Brien — Mixed Farmer and Early Tech Adopter
+![Persona 1 scenario](/docs/images/persona12.png)
 
-Age 31, Herefordshire. Farms 120 hectares of cereals and 60 head of beef cattle. High technology comfort — flies a DJI Mavic with a multispectral camera. James wants to integrate drone NDVI analysis with advisory knowledge in one platform rather than using three separate tools. He would upload drone imagery weekly, use satellite imagery between flights, and enable internet search for emerging threats.
+### Persona 2: Large-Scale Farm Owner
 
-### Persona 3: Dr. Helen Pryce — Agricultural Advisor
+![Persona 2 profile](/docs/images/persona21.png)
 
-Age 55, covers farms across Cambridgeshire and Bedfordshire. High desktop comfort, moderate mobile. Helen wants to recommend Cresco to the farmers she advises, needing confidence that answers cite approved sources. She would upload region-specific advisory notes, use the dashboard before client calls, and use delete-last-exchange to correct conversations.
-
-### Persona 4: Tom Patel — Agricultural Sciences Student
-
-Age 22, Harper Adams University. Very high technology comfort — studies GIS, remote sensing, and data analysis. Tom wants to use Cresco as a learning tool for UK agricultural best practices and to experiment with NDVI analysis for his dissertation. He would use the chat extensively with internet search enabled and use chart generation to visualise crop data comparisons.
+![Persona 2 scenario](/docs/images/persona22.png)
 
 ---
 
