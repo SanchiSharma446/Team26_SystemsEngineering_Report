@@ -70,7 +70,7 @@ No known bugs remain at the time of submission.
 | User and Deployment Manuals | 5%    | 5%     | 45%       | 45%   |
 | Legal Issues                | 95%   | 5%     | 0%        | 0%    |
 | Blog and Monthly Video      | 0%    | 75%    | 20%       | 5%    |
-| Overall contribution        | 20%   | 30%    | 30%       | 20%   |
+| Overall contribution        | 20%   | 25%    | 30%       | 25%   |
 
 ---
 
