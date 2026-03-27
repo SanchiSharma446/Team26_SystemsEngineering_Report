@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { Sprout } from 'lucide-react'
 
 const docLinks = [
   { label: 'Requirements', to: '/requirements' },
@@ -17,7 +18,10 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-columns">
         <div className="footer-column">
-          <h3>Cresco</h3>
+          <h3 className="footer-brand">
+            <Sprout size={16} aria-hidden="true" />
+            <span>Cresco</span>
+          </h3>
           <p>AI-powered agricultural advisory system for small-scale UK farmers.</p>
           <p className="footer-programme">UCL COMP0016 &mdash; IXN 2024/25</p>
         </div>
