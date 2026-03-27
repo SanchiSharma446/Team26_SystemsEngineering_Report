@@ -51,7 +51,7 @@ No known bugs remain at the time of submission.
 | UI Design (if applicable) | 30%   | 20%    | 10%       | 40%   |
 | Coding                    | 15%   | 20%    | 40%       | 25%   |
 | Testing                   | 40%   | 15%    | 30%       | 15%   |
-| Overall contribution      | 15%   | 25%    | 40%       | 20%   |
+| Overall contribution      | 20%   | 25%    | 35%       | 20%   |
 
 ### 1.5 Individual Contributions for Report Website
 
@@ -71,7 +71,7 @@ No known bugs remain at the time of submission.
 | User and Deployment Manuals | 5%    | 5%     | 55%       | 35%   |
 | Legal Issues                | 70%   | 5%     | 25%       | 0%    |
 | Blog and Monthly Video      | 0%    | 75%    | 20%       | 5%    |
-| Overall contribution        | 15%   | 30%    | 35%       | 20%   |
+| Overall contribution        | 20%   | 30%    | 30%       | 20%   |
 
 ---
 
