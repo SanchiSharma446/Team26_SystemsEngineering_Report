@@ -51,28 +51,28 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 | ------------------------- | ----- | ------ | --------- | ----- |
 | Research and Experiments  | 10%   | 25%    | 45%       | 20%   |
 | UI Design                 | 30%   | 20%    | 10%       | 40%   |
-| Coding                    | 15%   | 20%    | 40%       | 25%   |
+| Coding                    | 25%   | 20%    | 30%       | 25%   |
 | Testing                   | 40%   | 15%    | 25%       | 20%   |
-| Overall contribution      | 20%   | 25%    | 35%       | 20%   |
+| Overall contribution      | 23.00% | 26.00% | 26.50%    | 24.50% |
 
 ### 1.5 Individual Contributions for Report Website
 
 | Work packages               | Sagar | Sanchi | Shuaiting | Vivek |
 | --------------------------- | ----- | ------ | --------- | ----- |
-| Website Template and Setup  | 15%   | 15%    | 65%       | 5%    |
-| Home                        | 0%    | 65%    | 25%       | 10%   |
-| Video                       | 80%   | 0%     | 20%       | 0%    |
-| Requirement                 | 0%    | 45%    | 55%       | 0%    |
-| Research                    | 0%    | 70%    | 30%       | 0%    |
+| Website Template and Setup  | 15%   | 40%    | 40%       | 5%    |
+| Home                        | 5%    | 60%    | 25%       | 10%   |
+| Video                       | 20%   | 40%    | 20%       | 20%   |
+| Requirement                 | 10%   | 45%    | 45%       | 0%    |
+| Research                    | 5%    | 65%    | 30%       | 0%    |
 | UI Design                   | 0%    | 15%    | 10%       | 75%   |
-| System Design               | 0%    | 10%    | 85%       | 5%    |
-| Implementation              | 5%    | 20%    | 40%       | 35%   |
+| System Design               | 10%   | 40%    | 45%       | 5%    |
+| Implementation              | 15%   | 30%    | 25%       | 30%   |
 | Testing                     | 10%   | 0%     | 0%        | 90%   |
-| Evaluation and Future Work  | 5%    | 20%    | 65%       | 10%   |
+| Evaluation and Future Work  | 60%   | 5%     | 25%       | 10%   |
 | User and Deployment Manuals | 5%    | 5%     | 45%       | 45%   |
 | Legal Issues                | 95%   | 5%     | 0%        | 0%    |
-| Blog and Monthly Video      | 0%    | 75%    | 20%       | 5%    |
-| Overall contribution        | 20%   | 25%    | 30%       | 25%   |
+| Blog and Monthly Video      | 5%    | 70%    | 20%       | 5%    |
+| Overall contribution        | 23.00% | 26.00% | 26.50%    | 24.50% |
 
 ---
 
