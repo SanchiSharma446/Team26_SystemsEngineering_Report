@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, Sprout, X } from 'lucide-react'
 import './App.css'
 
 type NavItem =
@@ -47,7 +47,8 @@ function Header() {
       <header className="site-header">
         <div className="header-inner">
           <NavLink to="/" className="site-title" onClick={handleNavClick}>
-            Cresco
+            <Sprout size={18} className="site-title-icon" aria-hidden="true" />
+            <span>Cresco</span>
           </NavLink>
           <button
             className="hamburger-btn"
