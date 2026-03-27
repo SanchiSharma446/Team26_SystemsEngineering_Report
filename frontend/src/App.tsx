@@ -6,6 +6,7 @@ import Evaluation from './pages/Evaluation'
 import Home from './pages/Home'
 import Implementation from './pages/Implementation'
 import DeploymentManual from './pages/DeploymentManual'
+import DevelopmentBlog from './pages/DevelopmentBlog'
 import LegalReference from './pages/LegalReference'
 import Requirements from './pages/Requirements'
 import Research from './pages/Research'
@@ -46,6 +47,10 @@ function App() {
           <Route
             path="/appendices/deployment-manual"
             element={<DeploymentManual />}
+          />
+          <Route
+            path="/appendices/development-blog"
+            element={<DevelopmentBlog />}
           />
           <Route
             path="/appendices/legal-reference"

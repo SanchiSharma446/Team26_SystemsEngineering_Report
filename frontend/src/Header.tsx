@@ -19,6 +19,7 @@ const navItems: NavItem[] = [
     children: [
       { label: 'User Manual', to: '/appendices/user-manual' },
       { label: 'Deployment Manual', to: '/appendices/deployment-manual' },
+      { label: 'Development Blog', to: '/appendices/development-blog' },
       { label: 'Legal Reference', to: '/appendices/legal-reference' },
       { label: 'Videos', to: '/appendices/videos' },
     ],
