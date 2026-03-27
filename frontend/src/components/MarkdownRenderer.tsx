@@ -80,7 +80,13 @@ export default function MarkdownRenderer({ fileUrl, title }: MarkdownRendererPro
       });
   }, [fileUrl]);
 
+  const baseUrl = import.meta.env.BASE_URL;
+
   const components: Components = {
+    img({ src, ...rest }: ComponentPropsWithoutRef<'img'>) {
+      const resolvedSrc = src && src.startsWith('/') ? baseUrl + src.replace(/^\//, '') : src;
+      return <img src={resolvedSrc} {...rest} />;
+    },
     code(props: ComponentPropsWithoutRef<'code'> & { inline?: boolean }) {
       const { children, className, ...rest } = props;
       // Handle the 'node' prop manually mapping to any to avoid unused prop
