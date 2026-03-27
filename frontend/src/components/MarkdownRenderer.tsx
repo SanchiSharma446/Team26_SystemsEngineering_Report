@@ -62,7 +62,7 @@ export default function MarkdownRenderer({ fileUrl, title }: MarkdownRendererPro
 
   useEffect(() => {
     setLoading(true);
-    fetch(fileUrl)
+    fetch(import.meta.env.BASE_URL + fileUrl.replace(/^\//, ''))
       .then((res) => {
         if (!res.ok) {
           throw new Error('Could not fetch the document.');
