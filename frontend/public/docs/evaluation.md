@@ -47,11 +47,11 @@ No known bugs remain at the time of submission.
 
 | Work packages             | Sagar | Sanchi | Shuaiting | Vivek |
 | ------------------------- | ----- | ------ | --------- | ----- |
-| Research and Experiments  | 10%   | 15%    | 55%       | 20%   |
-| UI Design (if applicable) | 35%   | 15%    | 10%       | 40%   |
-| Coding                    | 15%   | 15%    | 45%       | 25%   |
-| Testing                   | 40%   | 10%    | 35%       | 15%   |
-| Overall contribution      | 20%   | 15%    | 45%       | 20%   |
+| Research and Experiments  | 10%   | 25%    | 45%       | 20%   |
+| UI Design (if applicable) | 30%   | 20%    | 10%       | 40%   |
+| Coding                    | 15%   | 20%    | 40%       | 25%   |
+| Testing                   | 40%   | 15%    | 30%       | 15%   |
+| Overall contribution      | 15%   | 25%    | 40%       | 20%   |
 
 ### 1.5 Individual Contributions for Report Website
 
@@ -71,7 +71,7 @@ No known bugs remain at the time of submission.
 | User and Deployment Manuals | 5%    | 5%     | 55%       | 35%   |
 | Legal Issues                | 70%   | 5%     | 25%       | 0%    |
 | Blog and Monthly Video      | 0%    | 75%    | 20%       | 5%    |
-| Overall contribution        | 15%   | 25%    | 40%       | 20%   |
+| Overall contribution        | 15%   | 30%    | 35%       | 20%   |
 
 ---
 
