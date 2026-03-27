@@ -45,7 +45,6 @@ function Footer() {
       </div>
       <div className="footer-bottom">
         <p>&copy; {year} Team 26 &mdash; UCL Computer Science. All Rights Reserved.</p>
-        <p>Built with React, Vite &amp; TypeScript.</p>
       </div>
     </footer>
   )
