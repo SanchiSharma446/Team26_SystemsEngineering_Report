@@ -47,31 +47,31 @@ No known bugs remain at the time of submission.
 
 | Work packages             | Sagar | Sanchi | Shuaiting | Vivek |
 | ------------------------- | ----- | ------ | --------- | ----- |
-| Research and Experiments  | 25%   | 25%    | 25%       | 25%   |
-| UI Design (if applicable) | 25%   | 25%    | 25%       | 25%   |
-| Coding                    | 25%   | 25%    | 25%       | 25%   |
-| Testing                   | 25%   | 25%    | 25%       | 25%   |
-| Overall contribution      | 25%   | 25%    | 25%       | 25%   |
+| Research and Experiments  | 10%   | 15%    | 55%       | 20%   |
+| UI Design (if applicable) | 35%   | 15%    | 10%       | 40%   |
+| Coding                    | 15%   | 15%    | 45%       | 25%   |
+| Testing                   | 40%   | 10%    | 35%       | 15%   |
+| Overall contribution      | 20%   | 15%    | 45%       | 20%   |
 
 ### 1.5 Individual Contributions for Report Website
 
 | Work packages               | Sagar | Sanchi | Shuaiting | Vivek |
 | --------------------------- | ----- | ------ | --------- | ----- |
-| Website Template and Setup  | 25%   | 25%    | 25%       | 25%   |
-| Home                        | 25%   | 25%    | 25%       | 25%   |
-| Video                       | 25%   | 25%    | 25%       | 25%   |
-| Requirement                 | 25%   | 25%    | 25%       | 25%   |
-| Research                    | 25%   | 25%    | 25%       | 25%   |
+| Website Template and Setup  | 15%   | 15%    | 65%       | 5%    |
+| Home                        | 0%    | 65%    | 25%       | 10%   |
+| Video                       | 80%   | 0%     | 20%       | 0%    |
+| Requirement                 | 0%    | 45%    | 55%       | 0%    |
+| Research                    | 0%    | 70%    | 30%       | 0%    |
 | Algorithm (if applicable)   | 25%   | 25%    | 25%       | 25%   |
-| UI Design (if applicable)   | 25%   | 25%    | 25%       | 25%   |
-| System Design               | 25%   | 25%    | 25%       | 25%   |
-| Implementation              | 25%   | 25%    | 25%       | 25%   |
-| Testing                     | 25%   | 25%    | 25%       | 25%   |
-| Evaluation and Future Work  | 25%   | 25%    | 25%       | 25%   |
-| User and Deployment Manuals | 25%   | 25%    | 25%       | 25%   |
-| Legal Issues                | 25%   | 25%    | 25%       | 25%   |
-| Blog and Monthly Video      | 25%   | 25%    | 25%       | 25%   |
-| Overall contribution        | 25%   | 25%    | 25%       | 25%   |
+| UI Design (if applicable)   | 10%   | 0%     | 15%       | 75%   |
+| System Design               | 0%    | 10%    | 85%       | 5%    |
+| Implementation              | 5%    | 20%    | 40%       | 35%   |
+| Testing                     | 5%    | 10%    | 40%       | 45%   |
+| Evaluation and Future Work  | 5%    | 20%    | 65%       | 10%   |
+| User and Deployment Manuals | 5%    | 5%     | 55%       | 35%   |
+| Legal Issues                | 70%   | 5%     | 25%       | 0%    |
+| Blog and Monthly Video      | 0%    | 75%    | 20%       | 5%    |
+| Overall contribution        | 15%   | 25%    | 40%       | 20%   |
 
 ---
 
