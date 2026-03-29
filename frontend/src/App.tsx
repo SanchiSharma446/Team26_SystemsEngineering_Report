@@ -14,7 +14,6 @@ import SystemDesign from './pages/System_Design'
 import Testing from './pages/Testing'
 import UIDesign from './pages/UI_Design'
 import UserManual from './pages/UserManual'
-import Videos from './pages/Videos'
 import './App.css'
 
 function ScrollToTop() {
@@ -56,7 +55,7 @@ function App() {
             path="/appendices/legal-reference"
             element={<LegalReference />}
           />
-          <Route path="/appendices/videos" element={<Videos />} />
+
           <Route path="/evaluation" element={<Evaluation />} />
         </Routes>
       </main>
