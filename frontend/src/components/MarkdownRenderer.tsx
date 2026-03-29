@@ -5,6 +5,7 @@ import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import mermaid from 'mermaid';
+import markdownContent from 'virtual:markdown-content';
 import TableOfContents from './TableOfContents';
 import './MarkdownRenderer.css';
 
@@ -62,7 +63,13 @@ export default function MarkdownRenderer({ fileUrl, title }: MarkdownRendererPro
 
   useEffect(() => {
     setLoading(true);
-    fetch(fileUrl)
+    const inlineContent = markdownContent[fileUrl];
+    if (inlineContent) {
+      setContent(inlineContent);
+      setLoading(false);
+      return;
+    }
+    fetch(import.meta.env.BASE_URL + fileUrl.replace(/^\//, ''))
       .then((res) => {
         if (!res.ok) {
           throw new Error('Could not fetch the document.');
@@ -80,7 +87,13 @@ export default function MarkdownRenderer({ fileUrl, title }: MarkdownRendererPro
       });
   }, [fileUrl]);
 
+  const baseUrl = import.meta.env.BASE_URL;
+
   const components: Components = {
+    img({ src, ...rest }: ComponentPropsWithoutRef<'img'>) {
+      const resolvedSrc = src && src.startsWith('/') ? baseUrl + src.replace(/^\//, '') : src;
+      return <img src={resolvedSrc} {...rest} />;
+    },
     code(props: ComponentPropsWithoutRef<'code'> & { inline?: boolean }) {
       const { children, className, ...rest } = props;
       // Handle the 'node' prop manually mapping to any to avoid unused prop
