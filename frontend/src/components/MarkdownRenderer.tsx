@@ -5,6 +5,7 @@ import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import mermaid from 'mermaid';
+import markdownContent from 'virtual:markdown-content';
 import TableOfContents from './TableOfContents';
 import './MarkdownRenderer.css';
 
@@ -62,6 +63,12 @@ export default function MarkdownRenderer({ fileUrl, title }: MarkdownRendererPro
 
   useEffect(() => {
     setLoading(true);
+    const inlineContent = markdownContent[fileUrl];
+    if (inlineContent) {
+      setContent(inlineContent);
+      setLoading(false);
+      return;
+    }
     fetch(import.meta.env.BASE_URL + fileUrl.replace(/^\//, ''))
       .then((res) => {
         if (!res.ok) {

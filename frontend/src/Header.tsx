@@ -21,7 +21,6 @@ const navItems: NavItem[] = [
       { label: 'Deployment Manual', to: '/appendices/deployment-manual' },
       { label: 'Development Blog', to: '/appendices/development-blog' },
       { label: 'Legal Reference', to: '/appendices/legal-reference' },
-      { label: 'Videos', to: '/appendices/videos' },
     ],
   },
   { label: 'Evaluation', to: '/evaluation' },

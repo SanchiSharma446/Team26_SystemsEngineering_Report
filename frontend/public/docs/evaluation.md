@@ -41,9 +41,7 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 
 ### 1.3 Known Bugs
 
-1. When loading conversation history, the frontend occasionally renders tool call messages, system messages, and empty messages that should be filtered out, cluttering the chat display. However, this should be corrected upon a refresh. *Priority: Medium*
-2. Loading the website in a mobile view causes collision and layout issues for certain components. The input bar is sometimes inaccessible in this state. *Priority: High*
-3. The drone modal can incorrectly claim to be showing a different index after the user changes their selection, without actually reprocessing the images. *Priority: Medium*
+1. The drone modal can incorrectly claim to be showing a different index after the user changes their selection, without actually reprocessing the images. *Priority: Low*
 
 ### 1.4 Individual Contributions for System Artefacts
 
@@ -53,7 +51,7 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 | UI Design                 | 30%   | 20%    | 10%       | 40%   |
 | Coding                    | 25%   | 20%    | 30%       | 25%   |
 | Testing                   | 40%   | 15%    | 25%       | 20%   |
-| Overall contribution      | 23.00% | 26.00% | 26.50%    | 24.50% |
+| Overall contribution      | 22.00% | 25.00% | 30.00%    | 23.00% |
 
 ### 1.5 Individual Contributions for Report Website
 
@@ -72,7 +70,7 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 | User and Deployment Manuals | 5%    | 5%     | 45%       | 45%   |
 | Legal Issues                | 95%   | 5%     | 0%        | 0%    |
 | Blog and Monthly Video      | 5%    | 70%    | 20%       | 5%    |
-| Overall contribution        | 23.00% | 26.00% | 26.50%    | 24.50% |
+| Overall contribution        | 22.00% | 24.50% | 30.00%    | 23.50% |
 
 ---
 
