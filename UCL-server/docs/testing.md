@@ -57,11 +57,13 @@ User Acceptance Testing was conducted with our client and a group of our peers t
 
 A few such examples are included below.
 
-| # | Severity | User | Problem | Solution |
-|---|---|---|---|---|
-| 1 | High | Classmate | On mobile, the message box could fall off-screen and the sidebars took up too much space. | Made both sidebars collapsible to preserve usable chat space on smaller screens. |
-| 2 | Medium | Client | It was unclear that the small globe icon beside the search bar controlled internet search. | Added a larger and more visible internet-toggle button in the toolbox/sidebar. |
-| 3 | High | Classmate | Users could send a message immediately after uploading a document, before indexing completed, which led to uninformed responses. | Enforced a wait state while files are uploading and indexing so responses are based on fully indexed content. |
+| #   | Severity | User      | Problem                                                                                                                          | Solution                                                                                                      |
+| --- | -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| 1   | High     | Classmate | On mobile, the message box could fall off-screen and the sidebars took up too much space.                                        | Made both sidebars collapsible to preserve usable chat space on smaller screens.                              |
+| 2   | Medium   | Client    | It was unclear that the small globe icon beside the search bar controlled internet search.                                       | Added a larger and more visible internet-toggle button in the toolbox/sidebar.                                |
+| 3   | High     | Classmate | Users could send a message immediately after uploading a document, before indexing completed, which led to uninformed responses. | Enforced a wait state while files are uploading and indexing so responses are based on fully indexed content. |
+
+These issues were promptly fixed.
 
 ---
 
