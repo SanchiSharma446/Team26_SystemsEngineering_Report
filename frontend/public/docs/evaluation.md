@@ -47,10 +47,10 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 
 | Work packages             | Sagar | Sanchi | Shuaiting | Vivek |
 | ------------------------- | ----- | ------ | --------- | ----- |
-| Research and Experiments  | 10%   | 25%    | 45%       | 20%   |
-| UI Design                 | 30%   | 20%    | 10%       | 40%   |
-| Coding                    | 25%   | 20%    | 30%       | 25%   |
-| Testing                   | 40%   | 15%    | 25%       | 20%   |
+| Research and Experiments  | 25%   | 25%    | 25%       | 25%   |
+| UI Design                 | 30%   | 15%    | 10%       | 45%   |
+| Coding                    | 18%   | 12%    | 50%       | 20%   |
+| Testing                   | 35%   | 15%    | 38%       | 12%   |
 | Overall contribution      | 22.00% | 25.00% | 30.00%    | 23.00% |
 
 ### 1.5 Individual Contributions for Report Website
