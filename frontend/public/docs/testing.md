@@ -28,7 +28,7 @@ To run backend tests use:
 
 Frontend tests use Vitest and the React testing library to focus on UI behaviour. They test interaction flows and failure handling.
 
-to run frontend tests use:
+To run frontend tests use:
 
 ``` npm test  ```
 
