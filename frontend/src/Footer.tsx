@@ -23,7 +23,7 @@ function Footer() {
             <span>Cresco</span>
           </h3>
           <p>AI-powered agricultural advisory system for small-scale UK farmers.</p>
-          <p className="footer-programme">UCL COMP0016 &mdash; IXN 2024/25</p>
+          <p className="footer-programme">UCL COMP0016 &mdash; IXN 2025/26</p>
         </div>
         <div className="footer-column">
           <h3>Documentation</h3>
