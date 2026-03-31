@@ -55,11 +55,11 @@ All functional requirements in scope (Must-have, Should-have, and Could-have) we
 | Work packages               | Sagar | Sanchi | Shuaiting | Vivek |
 | --------------------------- | ----- | ------ | --------- | ----- |
 | Website Template and Setup  | 15%   | 40%    | 40%       | 5%    |
-| Home                        | 5%    | 60%    | 25%       | 10%   |
+| Home                        | 12.5% | 52.5%  | 25%       | 10%   |
 | Video                       | 20%   | 40%    | 20%       | 20%   |
 | Requirement                 | 10%   | 45%    | 45%       | 0%    |
 | Research                    | 5%    | 65%    | 30%       | 0%    |
-| UI Design                   | 0%    | 15%    | 10%       | 75%   |
+| UI Design                   | 7.5%  | 15%    | 10%       | 67.5% |
 | System Design               | 10%   | 40%    | 45%       | 5%    |
 | Implementation              | 15%   | 30%    | 25%       | 30%   |
 | Testing                     | 10%   | 0%     | 0%        | 90%   |
@@ -67,7 +67,7 @@ All functional requirements in scope (Must-have, Should-have, and Could-have) we
 | User and Deployment Manuals | 5%    | 5%     | 45%       | 45%   |
 | Legal Issues                | 95%   | 5%     | 0%        | 0%    |
 | Blog and Monthly Video      | 5%    | 70%    | 20%       | 5%    |
-| Overall contribution        | 19.62% | 32.31% | 25.38%    | 22.69% |
+| Overall contribution        | 20.77% | 31.73% | 25.38%    | 22.12% |
 
 ---
 
