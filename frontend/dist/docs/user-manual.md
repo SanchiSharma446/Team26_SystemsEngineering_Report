@@ -45,7 +45,7 @@ The central area displays the chat interface and the dashboard, selectable by th
 <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
 	<img src="/docs/images/sources.png" alt="Sources sidebar" style="width: min(260px, 40vw);" />
 	<div style="flex: 1; min-width: 260px;">
-		<p>This sidebar contains user-added sources. Use Add Field Data to upload any supported file so the chatbot can provide more accurate, context-aware responses.</p>
+		<p>This sidebar contains user-added sources. Use "Add Field Data", or drag-and-drop, to upload supported filetypes so the chatbot can provide more accurate, context-aware responses.</p>
 	</div>
 </div>
 
@@ -83,7 +83,7 @@ The satellite imagery interface lets you view NDVI satellite analysis of your fa
 
 ![Web search toggle](/docs/images/web_search.png)
 
-The web search toggle enables or disables web search for chatbot responses, allowing you to trade off breadth of external information and response certainty.
+The web search toggle enables or disables internet grounding for chatbot responses.
 
 ### Drone Imagery Analysis
 
@@ -108,3 +108,16 @@ The analysis results view shows detailed insights from processed drone images. Y
 ![Dashboard overview](/docs/images/dashboard.png)
 
 The dashboard provides an overview of farm status and key metrics, including current tasks, weather information, and drone imagery analysis results.
+
+## Live Instance
+
+### Hosted Application
+
+Cresco has been deployed at the domain [crescofarm.com](https://crescofarm.com) for your convenience.
+
+### Test Account
+
+To explore and get started, feel free to sign in using the following credentials:
+
+- **Username:** IXN-2526
+- **Password:** Cresco_T26Admin
