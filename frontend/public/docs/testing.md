@@ -18,17 +18,17 @@ Overall our testing strategy was effective in identifying and resolving issues t
 
 ### 2.1 Unit Testing Results
 
-Unit tests were conducted for all individual features, and all tests passed successfully. We successfully exceeded achieeved our minimum test coverage of 80%
+Unit tests were conducted for all individual features, and all tests passed successfully. We successfully achieved our coverage target of 80%.
 
-Our backend tests use pytest, testing core logic and apis. These are mostly collected by class, using temp databases and mocks to simulate full functionality 
+Our backend tests use pytest for core logic and APIs. These are sectioned by class, using temp databases and mocks to simulate full functionality.
 
-to run backend tests use:
+To run backend tests use:
 
 ``` uv run pytest ```
 
-Frontend tests use Vitest and the React testing library to focus on ui behaviour. It tests interaction flows and failure handling 
+Frontend tests use Vitest and the React testing library to focus on UI behaviour. They test interaction flows and failure handling.
 
-to run frontend tests use:
+To run frontend tests use:
 
 ``` npm test  ```
 
@@ -44,7 +44,7 @@ We discovered several UI bugs and validation issues during manual testing, which
 
 Integration tests were manually performed to validate the interaction between different components and modules. All integration tests passed successfully, confirming that the various parts of the application worked together seamlessly.
 
-We repeated these tests every time a new component was added, or any component link was changed, ensuring the whole project works together as expected
+We repeated these tests every time a new component was added, or any component link was changed, ensuring the whole project works as expected.
 
 
 ---
@@ -67,4 +67,4 @@ A few such examples are included below.
 
 ## 5. Conclusion
 
-Overall, we managed to reach over 75% test coverage on our frontend and backend, with comprehensive unit tests and user acceptance testing ensuring our final product worked largely how we wanted it to. We can proudly say Cresco is robust and reliable, with few known bugs remaining at the time of submission.
+Overall, we managed to reach over 75% test coverage on our frontend and backend, with comprehensive unit and user acceptance testing ensuring that our final product worked as we wanted. We can proudly say Cresco is robust and reliable, with few known bugs remaining at the time of submission.
