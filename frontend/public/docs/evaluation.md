@@ -110,9 +110,9 @@ Timeouts are enforced whenever awaiting a process: 120 seconds for chat response
 
 ### 2.5 Compatibility
 
-The frontend is built with React 19 + Vite and served via Nginx, working in all modern browsers - although no explicit support matrix has been provided for legacy browsers. However, considering the current internet landscape, this is highly unlikely to pose an issue. The backend targets Python 3.12 and the CI pipeline runs on Node 22. External APIs (OpenWeatherMap, Nominatim, Copernicus, Tavily) are all accessed through backend proxy endpoints, which may need updating in future.
+The frontend is built with React 19 + Vite and served via Nginx, working in all modern browsers - although no explicit support matrix has been provided for legacy browsers. However, considering the current internet landscape, this is highly unlikely to pose an issue. The backend targets Python 3.12 and the CI pipeline runs on Node 22. External APIs (OpenWeatherMap, Nominatim, Copernicus, Tavily) are all accessed through backend proxy endpoints, keeping third-party dependencies cleanly isolated from the frontend.
 
-The system supports multiple LLM providers through a provider-agnostic pattern, allowing deployment to be moved between them by changing two environment variables (`MODEL_PROVIDER`, `MODEL_NAME`). No code needs to be modified for this purpose. However, the RAG database relies on an embeddings model provided remotely by OpenAI; this aspect of the system would need to be entirely overhauled, were the dependency to become problematic in future. 
+The system supports multiple LLM providers through a provider-agnostic pattern, allowing deployment to be moved between them by changing two environment variables (`MODEL_PROVIDER`, `MODEL_NAME`). No code needs to be modified for this purpose.
 
 Docker-based deployment makes the system portable across any host, and all configuration is externalised via a single `.env` file.
 
