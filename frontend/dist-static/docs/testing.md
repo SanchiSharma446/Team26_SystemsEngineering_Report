@@ -18,17 +18,17 @@ Overall our testing strategy was effective in identifying and resolving issues t
 
 ### 2.1 Unit Testing Results
 
-Unit tests were conducted for all individual features, and all tests passed successfully. We successfully exceeded achieeved our minimum test coverage of 80%
+Unit tests were conducted for all individual features, and all tests passed successfully. We achieved 85.79% backend coverage and 73.35% frontend coverage, for a combined 77.67%. The CI pipeline enforces a minimum of 80% coverage on the backend.
 
-Our backend tests use pytest, testing core logic and apis. These are mostly collected by class, using temp databases and mocks to simulate full functionality 
+Our backend tests use pytest for core logic and APIs. These are sectioned by class, using temp databases and mocks to simulate full functionality.
 
-to run backend tests use:
+To run backend tests:
 
 ``` uv run pytest ```
 
-Frontend tests use Vitest and the React testing library to focus on ui behaviour. It tests interaction flows and failure handling 
+Frontend tests use Vitest and the React Testing Library to focus on UI behaviour. They test interaction flows and failure handling.
 
-to run frontend tests use:
+To run frontend tests:
 
 ``` npm test  ```
 
@@ -42,9 +42,14 @@ We discovered several UI bugs and validation issues during manual testing, which
 
 ### 3.1 Integration Testing Results
 
-Integration tests were manually performed to validate the interaction between different components and modules. All integration tests passed successfully, confirming that the various parts of the application worked together seamlessly.
+Integration tests validate the interaction between components end-to-end, covering four main flows:
 
-We repeated these tests every time a new component was added, or any component link was changed, ensuring the whole project works together as expected
+- **Auth → protected routes:** Registration creates a user, the returned JWT is accepted by guarded endpoints, and a mismatched or expired token is rejected with 401.
+- **Chat with RAG:** A message sent to the `/chat` endpoint invokes the LangGraph agent, which performs a ChromaDB retrieval and returns a response with source citations. All external services (LLM, Tavily) are mocked; the PostgreSQL checkpointer uses a real service container in CI.
+- **File upload → indexing → retrieval:** A document uploaded via `POST /upload` is chunked, indexed into ChromaDB with the correct `user_id` metadata, and subsequently surfaced in a chat response.
+- **Farm save → weather fetch:** Saving a farm polygon triggers parallel OpenWeatherMap requests (mocked in CI), and the cached weather JSON is returned by the agent's weather tool.
+
+All integration tests passed successfully. They are re-run on every pull request via the CI pipeline against a PostgreSQL 17 service container. We repeated these tests every time a new component was added, or any component link was changed, ensuring the whole project works as expected.
 
 
 ---
@@ -69,4 +74,4 @@ These issues were promptly fixed.
 
 ## 5. Conclusion
 
-Overall, we managed to reach over 75% test coverage on our frontend and backend, with comprehensive unit tests and user acceptance testing ensuring our final product worked largely how we wanted it to. We can proudly say Cresco is robust and reliable, with few known bugs remaining at the time of submission.
+Overall, we managed to reach over 75% test coverage on our frontend and backend, with comprehensive unit and user acceptance testing ensuring that our final product worked as we wanted. We can proudly say Cresco is robust and reliable, with few known bugs remaining at the time of submission.

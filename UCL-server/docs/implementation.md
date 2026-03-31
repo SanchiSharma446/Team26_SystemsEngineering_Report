@@ -359,7 +359,7 @@ AI responses are rendered with `react-markdown` with three plugins: `remark-gfm`
 
 ### 8.2 Inline Chart Rendering
 
-Responses can also contain inline charts at the position specifiec by the agent. When the response is recieved by the backend, the chart (which is written in a `---CHART---` JSON block) is extracted and its position in the text stored. this is sent to the frontend as a response object, until rendering, where the response is split, and the charts are inserted at the appropriate place.
+Responses can also contain inline charts at the position specified by the agent. When the response is received by the backend, the chart (which is written in a `---CHART---` JSON block) is extracted and its position in the text stored. this is sent to the frontend as a response object, until rendering, where the response is split, and the charts are inserted at the appropriate place.
 
 The `ChartRenderer` uses Recharts to draw graphs, supporting 4 char types specified in the parameters: line, bar, stacked bar and pie. the type, data and axes are specified in the agent's `---CHART---` JSON block. 
 

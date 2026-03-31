@@ -4,7 +4,7 @@
 
 NTT DATA is a global digital business and IT services leader, headquartered in Tokyo, Japan, with operations in over 50 countries and approximately 190,000 employees worldwide. As one of the top 10 global IT services providers, NTT DATA partners with organisations across industries - including agriculture, government, and sustainability - to drive digital transformation through consulting, cloud infrastructure, data analytics, and AI solutions. NTT DATA has a strong presence in the UK through its London-based operations and has been actively investing in agri-tech innovation as part of its broader sustainability and smart society initiatives, recognising the potential of AI and data-driven tools to modernise traditional industries.
 
-This project was undertaken as part of UCL's Industry Exchange Network (IXN) programme, which pairs student teams with industry partners to deliver real-world software projects. Through the IXN programme, NTT DATA proposed and sponsored the Cresco project, and providing the team with industry mentorship. NTT DATA identified UK agriculture as a domain where conversational AI and remote sensing technologies could deliver significant value to end users.
+This project was undertaken as part of UCL's Industry Exchange Network (IXN) programme, which pairs student teams with industry partners to deliver real-world software projects. Through the IXN programme, NTT DATA proposed and sponsored the Cresco project, and provided the team with industry mentorship. NTT DATA identified UK agriculture as a domain where conversational AI and remote sensing technologies could deliver significant value to end users.
 
 ---
 
@@ -20,7 +20,7 @@ Requirements were gathered through three channels: interviews with farmers, feed
 
 ### 3.1 Interviews with Farmers
 
-We interviewed UK farmers at different stages of development. Initial scoping interviews established the core problem: farmers need advice contextualised by weather and location, not generic textbook answers, and they lack time to search through lengthy PDFs during critical seasonal windows. After the first prototype was operational, we demonstrated it to farmers and collected feedback, which led to the addition of actionable task lists, a weather panel alongside the chat, and drone image analysis integration.
+We interviewed UK farmers at different stages of development. Initial scoping interviews established the core problem: farmers need advice contextualised by weather and location, not generic textbook answers, and they lack time to search through guides during critical seasonal windows. After the first prototype was operational, we demonstrated it to farmers and collected feedback, which led to the addition of actionable task lists, a weather panel alongside the chat, and drone image analysis integration.
 
 ### 3.2 Persona-Based Feedback
 
@@ -124,8 +124,6 @@ flowchart LR
 | FR-10 | The system shall provide a dashboard view aggregating tasks, a 5-day weather forecast, the current season, and a field health NDVI chart from the user's drone imagery history.                                                          | Should   |
 | FR-11 | The system shall provide a toggleable internet search capability (via Tavily) and allow users to permanently delete their account with cascading removal of all associated data.                                                          | Should   |
 | FR-12 | The system shall support multiple LLM providers (Azure OpenAI, OpenAI, Google GenAI, Anthropic, Ollama) configurable via environment variables, drag-and-drop file upload, and collapsible sidebars.                                     | Could    |
-| FR-13 | The system shall support streaming chat responses via Server-Sent Events, voice input via the Web Speech API, and PDF export of conversation history.                                                                                    | Could    |
-| FR-14 | The system shall not provide a native mobile app, real-time collaborative sessions, farm management software integration, or custom LLM fine-tuning within the current project scope.                                                    | Won't    |
 
 ### 6.2 Non-Functional Requirements
 
@@ -140,6 +138,5 @@ flowchart LR
 | NFR-07 | **Deployability:** The system shall be deployable as Docker images orchestrated via Docker Compose, with a GitHub Actions CI/CD pipeline for automated lint, test, build, and deployment to Azure.                           | Should   |
 | NFR-08 | **Extensibility:** The system shall use a provider-agnostic LLM initialisation pattern, be built entirely with open-source frameworks, and read all configuration from environment variables via a single `.env` file.        | Should   |
 | NFR-09 | **Reliability:** The system shall handle errors gracefully - logging failures silently where appropriate, returning HTTP 502 for upstream API failures, and falling back to plain text when structured output parsing fails.  | Should   |
-| NFR-10 | **Usability:** The frontend shall provide a dark theme for reduced eye strain and support offline access as a Progressive Web App with cached advisory content and weather data.                                              | Could    |
-| NFR-11 | **Scalability/Localisation:** The system shall not support horizontal scaling with load balancing or multi-language localisation within the current project scope.                                                            | Won't    |
+| NFR-10 | **Usability:** The frontend shall provide a dark theme for reduced eye strain.                                                                                                                     | Could    |
  
