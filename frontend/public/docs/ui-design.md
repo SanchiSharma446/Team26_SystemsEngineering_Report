@@ -75,22 +75,16 @@ As part of the UI design process, we conducted a heuristic evaluation to identif
     </thead>
     <tbody>
       <tr>
-        <td style="border: 1px solid #ccc; padding: 8px;">Help and documentation</td>
-        <td style="border: 1px solid #ccc; padding: 8px;">Unclear on where to get help if user is unsure about functionality</td>
-        <td style="border: 1px solid #ccc; padding: 8px;">Addition of help button in sidebar that directs to a help page</td>
-        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">3</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #ccc; padding: 8px;">Flexibility and efficiency of use</td>
-        <td style="border: 1px solid #ccc; padding: 8px;">Unclear if previous conversations are persisted</td>
-        <td style="border: 1px solid #ccc; padding: 8px;">Have a single conversation that keeps context to give most informed responses</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Error prevention</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Users may attempt to upload unsupported file types as data sources, leading to confusion when uploads fail</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Clearly display supported extensions in the Sources panel and enforce validation when unsupported files are selected</td>
         <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">2</td>
       </tr>
       <tr>
-        <td style="border: 1px solid #ccc; padding: 8px;">Help and documentation</td>
-        <td style="border: 1px solid #ccc; padding: 8px;">Unclear to users what the UI buttons on ‘find your farm’ do. Do farm borders have to be submitted?</td>
-        <td style="border: 1px solid #ccc; padding: 8px;">Hover descriptions and clearer UI instructions</td>
-        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">1</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Flexibility and efficiency of use</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Unclear whether previous conversations are persisted</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Have a single conversation that keeps context to give most informed responses</td>
+        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">2</td>
       </tr>
       <tr>
         <td style="border: 1px solid #ccc; padding: 8px;">User control and freedom</td>
@@ -103,6 +97,12 @@ As part of the UI design process, we conducted a heuristic evaluation to identif
         <td style="border: 1px solid #ccc; padding: 8px;">Users may prefer to use Application on other devices than mobile</td>
         <td style="border: 1px solid #ccc; padding: 8px;">Change to web application for ability to use on any device</td>
         <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">3</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">Help and documentation</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Users may be unsure where to find guidance on key flows</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Add concise inline instructions to the farm selection flow and ensure there is a clear link from the UI to the user manual</td>
+        <td style="border: 1px solid #ccc; padding: 8px; text-align: center;">1</td>
       </tr>
     </tbody>
   </table>

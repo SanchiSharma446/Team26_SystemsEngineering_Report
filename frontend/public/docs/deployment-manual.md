@@ -224,8 +224,6 @@ az staticwebapp create --name cresco-frontend \
   --location $LOCATION
 ```
 
-> **Note:** University Azure accounts may have VM quota restrictions. Use a pay-as-you-go subscription if resource creation fails.
-
 ### 2. Configure App Service settings
 
 ```bash
@@ -303,22 +301,8 @@ curl https://cresco-backend.azurewebsites.net/health
 curl http://localhost:8000/health
 ```
 
-- [ ] Frontend loads and login works with admin credentials.
-- [ ] Chat sends a message and receives a response with citations.
-- [ ] Weather panel shows data for a mapped farm location.
-- [ ] File upload indexes and appears in subsequent chat context.
-- [ ] Drone image upload returns NDVI analysis.
-
----
-
-## Common Issues
-
-| Issue | Cause | Fix |
-|---|---|---|
-| VM quota exceeded | University Azure subscription | Use pay-as-you-go account |
-| `az provider` errors | Missing resource provider registration | `az provider register --namespace <provider>` |
-| CORS error in browser | Frontend origin not allowed | Add frontend URL to `ALLOWED_ORIGINS` in App Service settings |
-| Backend reads wrong `.env` | `.env` placed inside `backend/` | Move `.env` to project root |
-| `libgl1-mesa-glx` not found | Renamed in Debian Trixie | Use `libgl1` (already fixed in Dockerfile) |
-| Gunicorn worker race on startup | Parallel migration runs | Handled via try/except in `AsyncPostgresSaver.setup()` |
-| `VITE_API_URL` not applied | Vite bakes env vars at build time | Set the secret in GitHub before triggering deployment |
+- Frontend loads and login works with admin credentials.
+- Chat sends a message and receives a response with citations.
+- Weather panel shows data for a mapped farm location.
+- File upload indexes and appears in subsequent chat context.
+- Drone image upload returns NDVI analysis.
