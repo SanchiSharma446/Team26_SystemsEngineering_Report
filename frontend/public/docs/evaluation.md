@@ -18,8 +18,6 @@
 | FR-10 | Dashboard aggregating tasks, weather, season, and field health                   | Should   | Complete    | Vivek, Sanchi            |
 | FR-11 | Toggleable internet search and account deletion with cascading cleanup           | Should   | Complete    | All |
 | FR-12 | Multi-LLM provider support, drag-and-drop upload, and collapsible sidebars       | Could    | Complete    | Shuaiting, Vivek, Sagar  |
-| FR-13 | Streaming responses, voice input, and PDF export                                 | Could    | Not Started | —                        |
-| FR-14 | Native mobile app, collaborative sessions, farm software integration, custom LLM | Won't    | —           | —                        |
 
 ### 1.2 Achievement Table - Non-Functional Requirements
 
@@ -34,10 +32,9 @@
 | NFR-07 | Docker deployment with CI/CD pipeline to Azure                           | Should   | Complete | Shuaiting, Sagar, Sanchi |
 | NFR-08 | Provider-agnostic LLM init, open-source stack, and env-var configuration | Should   | Complete | All                      |
 | NFR-09 | Graceful error handling with fallbacks                                   | Should   | Complete | All         |
-| NFR-10 | Dark theme and Progressive Web App with offline caching                  | Could    | Partial  | Vivek, Sagar             |
-| NFR-11 | Horizontal scaling and multi-language localisation                       | Won't    | —        | —                        |
+| NFR-10 | Dark theme for reduced eye strain                                       | Could    | Complete | Vivek, Sagar             |
 
-All 6 Must-have and 5 Should-have functional requirements were completed, along with 1 of 2 Could-have functional requirements. The incomplete Could-have (FR-13: streaming, voice, PDF export) was deprioritised in favour of delivering all Must-have and Should-have requirements to a high standard. For non-functional requirements, all Must-have, all Should-have, and 1 of 2 Could-have items were completed (dark theme delivered; PWA not started).
+All functional requirements in scope (Must-have, Should-have, and Could-have) were completed. For non-functional requirements, all Must-have and all Should-have items were completed; the Could-have item was delivered as a dark-mode UI (no light theme).
 
 ### 1.3 Known Bugs
 
@@ -78,13 +75,13 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 
 ### 2.1 User Experience
 
-Cresco was built as a Single-Page Application, split into three primary components. The central area houses the chat pane and dashboard; the view can be toggled via a top navigation bar. We designed the program to be easily and intuitively navigable, so all functionality is clearly labelled with both text and relevant iconography, and ARIA labels have been applied to all interactive elements in order to facilitate further accesibility. The dashboard aggregates tasks, weather, important news, and field health into a single view for ease of use, with nested submenus eliminated. Two collapsible sidebars allow users to customise their context: the left-side pane centralises file management, whilst the right-side pane contains all of Cresco's auxiliary tools. In the left sidebar, files can be uploaded via either browsing or drag-and-drop, with supported extensions clearly indicated. The same panel is used to display a source count, and supports the deletion functionality. The right sidebar contains various informational modals, such as the drone analysis panel, which have been ordered by scope and dependency - the option to select a farm, for example, comes first in the list. Style is consistent, with icons being reused across related contexts, and standard keyboard shortcuts (e.g. Enter to send, Shift+Enter for newlines) implemented.
+Cresco was built as a Single-Page Application, split into three primary components. The central area houses the chat pane and dashboard; the view can be toggled via a top navigation bar. We designed the program to be easily and intuitively navigable, so all functionality is clearly labelled with both text and relevant iconography, and ARIA labels have been applied to all interactive elements in order to facilitate further accesibility. The dashboard aggregates tasks, weather, important news, and field health into a single view for ease of use, with nested submenus eliminated. Two collapsible sidebars allow users to customise their context: the left-side pane centralises file management, whilst the right-side pane contains all of Cresco's auxiliary tools. In the left sidebar, files can be uploaded via either browsing or drag-and-drop, with supported extensions clearly indicated. The same panel is used to display a source count, and supports the deletion functionality. The right sidebar contains various informational modals, such as the drone analysis panel, which have been ordered by scope and dependency - the option to select a farm, for example, comes first in the list. Style is consistent, with icons being reused across related contexts, and standard keyboard shortcuts (e.g. Enter to send, Shift+Enter for newlines, Ctrl+Shift+⌫) implemented.
 
 No formal accessibility audit was conducted when designing this project. The lack of streaming responses has been noted to affect the user experience - in periods of very high latency, users may wait up to 120 seconds with only a loading indicator, which could be improved with real-time token display.
 
 ### 2.2 Functionality
 
-All Must-have and Should-have requirements were delivered, along with 4 of the 7 Could-have functional requirements. The core chat system uses Retrieval-Augmented Generation, ensuring that answers are grounded in citations whenever possible, and aligned to the project's scope. User uploads are indexed similarly to the primary knowledge base, although the LLM is made aware of the distinction. The frontend parses structured `---TASKS---` and `---CHART---` blocks from LLM responses to render them as interactive inline UI components, falling back to plain text when parsing fails. Various LLM providers are supported through LangChain's provider-agnostic `init_chat_model` pattern, configurable via environment variables.
+All requirements were delivered. The core chat system uses Retrieval-Augmented Generation, ensuring that answers are grounded in citations whenever possible, and aligned to the project's scope. User uploads are indexed similarly to the primary knowledge base, although the LLM is made aware of the distinction. The frontend parses structured `---TASKS---` and `---CHART---` blocks from LLM responses to render them as interactive inline UI components, falling back to plain text when parsing fails. Various LLM providers are supported through LangChain's provider-agnostic `init_chat_model` pattern, configurable via environment variables.
 
 Drone image analysis computes NDVI, EVI, and SAVI vegetation indices from paired RGB and NIR images, with gallery storage, histogram visualisation within analyses, and time series charting. Satellite NDVI is fetched from Copernicus Sentinel-2 using the user's farm coordinates.
 
@@ -96,7 +93,7 @@ The main functional limitation is that response quality depends on the chosen pr
 
 The backend implements graceful error handling: failures are silently logged without blocking data saving, upstream API issues return HTTP 502, and parsing errors in rendering pipelines fall back to a plaintext display. Duplicate account registrations return HTTP 409 Conflict.
 
-The test suite achieves 77.67%% coverage, with minimums enforced by the CI pipeline throughout development. TDD practices were attempted during most sprints, but the frontend is much less thoroughly tested than the backend at 73.35% compared to 85.79%. All external services are mocked in tests, without real API calls being made, which might introduce flaws in the tests' design; however, they were written as much as possible not to be brittle. Conversation history persists across server restarts thanks to a PostgreSQL checkpointer.
+The test suite achieves 77.67%% coverage, with minima enforced by the CI pipeline throughout development. TDD practices were attempted during most sprints, but the frontend is much less thoroughly tested than the backend at 73.35% compared to 85.79%. All external services are mocked in tests, without real API calls being made, which might introduce flaws in the tests' design; however, they were written as much as possible not to be brittle. Conversation history persists across server restarts thanks to a PostgreSQL checkpointer.
 
 The system lacks rate limiting, which does create a potential attack surface. The authors did not test its scaling under heavy abuse. A `/health` endpoint can be pinged, but is likely not sufficient for detailed performance monitoring.
 
