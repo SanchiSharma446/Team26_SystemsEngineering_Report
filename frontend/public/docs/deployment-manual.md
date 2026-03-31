@@ -53,9 +53,10 @@ python -c "import secrets; print(secrets.token_urlsafe(32))"
 
 **Azure OpenAI** (default):
 ```
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+MODEL_NAME=gpt-5.1-chat
+AZURE_OPENAI_ENDPOINT=https://cresco-ai.openai.azure.com/
 AZURE_OPENAI_API_VERSION=2024-12-01-preview
-AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini
+AZURE_OPENAI_DEPLOYMENT=gpt-5.1-chat
 AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-3-small
 ```
 
@@ -82,6 +83,8 @@ ANTHROPIC_API_KEY=sk-ant-...
 |---|---|---|
 | `CHROMA_PERSIST_DIR` | `./data/chroma_db` | ChromaDB vector index location |
 | `KNOWLEDGE_BASE_PATH` | `./data/knowledge_base` | RAG source documents |
+| `EMBEDDING_MODEL` | `text-embedding-3-small` | Embedding model for RAG |
+| `API_HOST` | `0.0.0.0` | Backend bind address |
 | `API_PORT` | `8000` | Backend port |
 | `DEBUG` | `true` | Enable verbose logging |
 | `COPERNICUS_CLIENT_ID` | — | Copernicus satellite imagery |
@@ -153,8 +156,11 @@ docker run -d --name cresco-backend \
   -p 8000:8000 \
   -e DATABASE_URL=postgresql://cresco:cresco@postgres:5432/cresco \
   -e JWT_SECRET_KEY=<your-secret> \
-  -e MODEL_PROVIDER=openai \
-  -e OPENAI_API_KEY=sk-... \
+  -e MODEL_PROVIDER=azure-openai \
+  -e MODEL_NAME=gpt-5.1-chat \
+  -e AZURE_OPENAI_ENDPOINT=https://cresco-ai.openai.azure.com/ \
+  -e AZURE_OPENAI_DEPLOYMENT=gpt-5.1-chat \
+  -e AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-3-small \
   -e OPENWEATHER_API_KEY=... \
   -e TAVILY_API_KEY=... \
   cresco-backend:latest
@@ -231,8 +237,9 @@ az webapp config appsettings set \
   --resource-group $RESOURCE_GROUP --name cresco-backend \
   --settings \
     MODEL_PROVIDER=azure-openai \
-    AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/ \
-    AZURE_OPENAI_DEPLOYMENT=gpt-4o-mini \
+    MODEL_NAME=gpt-5.1-chat \
+    AZURE_OPENAI_ENDPOINT=https://cresco-ai.openai.azure.com/ \
+    AZURE_OPENAI_DEPLOYMENT=gpt-5.1-chat \
     AZURE_OPENAI_EMBEDDING_DEPLOYMENT=text-embedding-3-small \
     DATABASE_URL="postgresql://crescoadmin:<password>@cresco-db.postgres.database.azure.com:5432/cresco?sslmode=require" \
     JWT_SECRET_KEY=<generated-secret> \
