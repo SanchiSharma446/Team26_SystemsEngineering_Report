@@ -67,7 +67,45 @@ graph TB
 
 ---
 
-## 2. Site Map
+## 2. Navigation and Data Model
+
+### 2.1 ER Diagram
+
+The following entity-relationship diagram covers Cresco's two PostgreSQL application tables and their logical relationship to the LangGraph conversation checkpoint tables (auto-created by `AsyncPostgresSaver.setup()`). ChromaDB and the file system are not relational and are documented in sections 5.2 and 5.3 respectively.
+
+```mermaid
+erDiagram
+    users {
+        TEXT id PK
+        TEXT username UK
+        TEXT password_hash
+        BOOLEAN is_admin
+        TIMESTAMPTZ created_at
+    }
+    farm_data {
+        TEXT user_id PK
+        TEXT location
+        DOUBLE_PRECISION area
+        DOUBLE_PRECISION lat
+        DOUBLE_PRECISION lon
+        JSONB nodes
+        JSONB weather
+    }
+    lg_checkpoints {
+        TEXT thread_id
+        TEXT checkpoint_id PK
+        BYTEA data
+    }
+    users ||--o| farm_data : "has farm (user_id FK)"
+    users ||--o{ lg_checkpoints : "has conversation (thread_id = user id)"
+```
+
+- `farm_data.user_id` is a 1-to-1 foreign key to `users.id` — each user has at most one saved farm.
+- `lg_checkpoints` is a simplified representation of LangGraph's auto-generated tables; the `thread_id` is set to the user's UUID, binding conversation history to the user.
+
+---
+
+### 2.2 Site Map
 
 ```mermaid
 graph TD
@@ -269,7 +307,7 @@ The `db.py` module provides a functional repository interface over PostgreSQL. A
 
 ## 5. Data Storage
 
-### 6.1 PostgreSQL
+### 5.1 PostgreSQL
 
 PostgreSQL 17 stores relational data across two application tables and auto-generated LangGraph checkpointer tables.
 
@@ -305,7 +343,7 @@ The `nodes` column stores the farm polygon boundary as a JSONB array of `{lat, l
 
 **LangGraph Checkpointer Tables** - Auto-created by `AsyncPostgresSaver.setup()`. Stores serialised conversation state (all messages, tool calls, and tool responses) keyed by `thread_id`, enabling conversation persistence across server restarts.
 
-### 6.2 ChromaDB
+### 5.2 ChromaDB
 
 ChromaDB provides the vector store for Retrieval-Augmented Generation.
 
@@ -320,7 +358,7 @@ ChromaDB provides the vector store for Retrieval-Augmented Generation.
 
 Document scoping uses the `user_id` metadata field. Shared knowledge base documents are tagged with `user_id = "__shared__"`. User uploads are tagged with the user's UUID. The retrieval tool filters with `$or: [user_id == "__shared__", user_id == current_user]` to return both shared and user-specific documents.
 
-### 6.3 File System
+### 5.3 File System
 
 | Path                      | Contents                                                       | Lifecycle                                                        |
 | ------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -333,7 +371,7 @@ Document scoping uses the `user_id` metadata field. Shared knowledge base docume
 
 ## 6. Packages and APIs
 
-### 7.1 Key Packages
+### 6.1 Key Packages
 
 **Backend (Python 3.12):**
 
@@ -368,7 +406,7 @@ Document scoping uses the `user_id` metadata field. Shared knowledge base docume
 | lucide-react                    | 0.562     | Icon library                                        |
 | vitest + @testing-library/react | 4.0, 16.3 | Unit testing framework                              |
 
-### 7.2 API Endpoints
+### 6.2 API Endpoints
 
 All endpoints are served under `/api/v1`. Endpoints marked with a lock require a valid JWT Bearer token.
 
@@ -431,7 +469,7 @@ All endpoints are served under `/api/v1`. Endpoints marked with a lock require a
 | GET    | `/health`          | Health check                                | No   |
 | DELETE | `/account`         | Delete user account and all associated data | Yes  |
 
-### 7.3 External API Integrations
+### 6.3 External API Integrations
 
 | API                                        | Purpose                                  | Backend Access Point                                              | Auth Method                             |
 | ------------------------------------------ | ---------------------------------------- | ----------------------------------------------------------------- | --------------------------------------- |

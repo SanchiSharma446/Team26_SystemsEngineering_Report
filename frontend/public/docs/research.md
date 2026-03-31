@@ -11,7 +11,7 @@ When building the initial requirements list at the beginning of the project, we 
 	<img src="/docs/images/farmerchat2.png" alt="FarmerChat screenshot 2" width="220" />
 </p>
 
-Farmer.Chat is a GPT-4-based, multilingual AI platform developed by Digital Green and Gooey.AI. It is designed to provide smallholder farmers and agricultural extension workers with data-driven insights and decision-making tools for crop management through the a familiar looking interface of WhatsApp. It uses Retrieval Augmented Generation (RAG) to integrate a large library of agricultural info, such as training video transcripts, call centre logs, and crop research factsheets, to answer farmer queries accurately and in context. Farmers can interact via text, voice notes, or photos, and receive real-time weather-integrated advice, pest forecasts, and market prices in their local language.
+Farmer.Chat is a GPT-4-based, multilingual AI platform developed by Digital Green and Gooey.AI [1]. It is designed to provide smallholder farmers and agricultural extension workers with data-driven insights and decision-making tools for crop management through the a familiar looking interface of WhatsApp. It uses Retrieval Augmented Generation (RAG) to integrate a large library of agricultural info, such as training video transcripts, call centre logs, and crop research factsheets, to answer farmer queries accurately and in context. Farmers can interact via text, voice notes, or photos, and receive real-time weather-integrated advice, pest forecasts, and market prices in their local language.
 
 | Main Features  | What We Learnt |
 | --- | --- |
@@ -28,7 +28,7 @@ Farmer.Chat is a GPT-4-based, multilingual AI platform developed by Digital Gree
 	<img src="/docs/images/onesoil2.png" alt="OneSoil screenshot 2" width="220" />
 </p>
 
-Meanwhile, OneSoil is a precision agriculture app that leverages satellite technology and ML to provide farmers with quantitative insights for optimised crop management, field monitoring, plant health analysis, and variable rate application planning. Farmers can add field boundaries and then analyse NDVI vegetation indices, growing degree-days, and precipitation charts to monitor and manage their crops remotely. Used by over 300,000 farmers worldwide, the platform is free to access and covers around 5% of the world's arable land. It is not an AI powered platform, but we looked into this to understand the satellite and drone imagery processing components of our solution better.
+Meanwhile, OneSoil is a precision agriculture app that leverages satellite technology and ML to provide farmers with quantitative insights for optimised crop management, field monitoring, plant health analysis, and variable rate application planning [2]. Farmers can add field boundaries and then analyse NDVI vegetation indices, growing degree-days, and precipitation charts to monitor and manage their crops remotely. Used by over 300,000 farmers worldwide, the platform is free to access and covers around 5% of the world's arable land. It is not an AI powered platform, but we looked into this to understand the satellite and drone imagery processing components of our solution better.
 
 | Main Features  | What We Learnt |
 | --- | --- |
@@ -80,7 +80,7 @@ FastAPI was selected for the backend due to its native support for asynchronous 
 
 ### 4.3 AI Agent - LangGraph and LangChain
 
-LangGraph was used to build the agentic core of Cresco, with LangChain providing the underlying tooling. LangChain is well-suited to chaining LLM calls and connecting tools, while LangGraph excels at managing complex, stateful agent workflows. LangGraph's graph-based approach allowed us to define distinct nodes for knowledge retrieval, weather lookup, and web search, with conditional edges determining which tools the agent invokes based on the query. The main alternative considered was CrewAI, which takes a role-based multi-agent approach. However, Cresco's agent only required a single agent coordinating multiple tools rather than multiple specialised agents collaborating, making LangGraph's single-agent stateful model a better fit. The breadth of documentation and the ease of switching out LLM providers also made LangChain a better choice for us.
+LangGraph was used to build the agentic core of Cresco, with LangChain providing the underlying tooling [3]. LangChain is well-suited to chaining LLM calls and connecting tools, while LangGraph excels at managing complex, stateful agent workflows. LangGraph's graph-based approach allowed us to define distinct nodes for knowledge retrieval, weather lookup, and web search, with conditional edges determining which tools the agent invokes based on the query. The main alternative considered was CrewAI, which takes a role-based multi-agent approach. However, Cresco's agent only required a single agent coordinating multiple tools rather than multiple specialised agents collaborating, making LangGraph's single-agent stateful model a better fit. The breadth of documentation and the ease of switching out LLM providers also made LangChain a better choice for us.
 
 ### 4.4 Vector Store - ChromaDB
 
@@ -98,8 +98,26 @@ Rather than hardcoding a single LLM provider, we built our tool to be configurab
 
 ### 4.7 External APIs - OpenWeatherMap, Nominatim, Copernicus Sentinel Hub, Tavily Search
 
-OpenWeatherMap was selected for weather data due to its free tier. Alternatives like Tomorrow.io offer more granular agricultural weather data but are paywalled. Nominatim (OpenStreetMap) was used for geocoding as a free, open-source alternative to the Google Maps Geocoding API, which charges per request. Copernicus Sentinel Hub was used to fetch satellite imagery for server-side NDVI computation. It provides free access to Sentinel-2 multispectral data which covered the UK, our scope for the project. When selecting a satellite imagery provider for server-side vegetation index computation, we initially looked into Landsat as a well-known, freely available source of multispectral imagery. However, Landsat 7, the most widely referenced version of the programme, was officially decommissioned in June 2025. Tavily Search was used for the agent's optional web search tool due to its LangChain integration and developer-friendly free tier.
+OpenWeatherMap was selected for weather data due to its free tier [5]. Alternatives like Tomorrow.io offer more granular agricultural weather data but are paywalled. Nominatim (OpenStreetMap) was used for geocoding as a free, open-source alternative to the Google Maps Geocoding API, which charges per request [6]. Copernicus Sentinel Hub was used to fetch satellite imagery for server-side NDVI computation [4]. It provides free access to Sentinel-2 multispectral data which covered the UK, our scope for the project. When selecting a satellite imagery provider for server-side vegetation index computation, we initially looked into Landsat as a well-known, freely available source of multispectral imagery. However, Landsat 7, the most widely referenced version of the programme, was officially decommissioned in June 2025. Tavily Search was used for the agent's optional web search tool due to its LangChain integration and developer-friendly free tier.
 
 ### 4.8 Libraries
 
-We evaluated QGIS as an option for processing uploaded multispectral drone imagery and computing vegetation indices, given its widespread use in geospatial and agricultural research. However, QGIS was a full GIS tool, thus making it better suited as an analytical tool for academic use rather than something that could be embedded into our backend pipeline. For Cresco's purposes, we needed a lightweight, scriptable library that could ingest raster files and extract band data as part of an API request. Rasterio was chosen for this, as it handles raster file reading and band extraction simply and efficiently without the overhead of a full GIS environment.
+We evaluated QGIS as an option for processing uploaded multispectral drone imagery and computing vegetation indices, given its widespread use in geospatial and agricultural research. However, QGIS was a full GIS tool, thus making it better suited as an analytical tool for academic use rather than something that could be embedded into our backend pipeline. For Cresco's purposes, we needed a lightweight, scriptable library that could ingest raster files and extract band data as part of an API request. Rasterio was chosen for this, as it handles raster file reading and band extraction simply and efficiently without the overhead of a full GIS environment [7].
+
+---
+
+## References
+
+[1] Digital Green and Gooey.AI, "FarmerChat: AI-Powered Agricultural Advisory," 2023. [Online]. Available: https://digitalgreen.org/farmer-chat/
+
+[2] OneSoil, "OneSoil: Free Farming App for Precision Agriculture," 2023. [Online]. Available: https://onesoil.ai/en
+
+[3] LangChain Inc., "LangGraph: Agent Orchestration Framework," Documentation, 2024. [Online]. Available: https://langchain-ai.github.io/langgraph/
+
+[4] European Space Agency, "Sentinel-2," ESA Earth Online, 2024. [Online]. Available: https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2
+
+[5] OpenWeather, "Current Weather and Forecast API," OpenWeather Documentation, 2024. [Online]. Available: https://openweathermap.org/api
+
+[6] OpenStreetMap Foundation, "Nominatim: Search and Geocoding API," OSM Wiki, 2024. [Online]. Available: https://nominatim.org/
+
+[7] Rasterio Contributors, "Rasterio: Access to Geospatial Raster Data," Read the Docs, 2024. [Online]. Available: https://rasterio.readthedocs.io/
