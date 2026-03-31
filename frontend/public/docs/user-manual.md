@@ -108,3 +108,16 @@ The analysis results view shows detailed insights from processed drone images. Y
 ![Dashboard overview](/docs/images/dashboard.png)
 
 The dashboard provides an overview of farm status and key metrics, including current tasks, weather information, and drone imagery analysis results.
+
+## Live Instance
+
+### Hosted Application
+
+Cresco has been deployed at the domain [crescofarm.com](https://crescofarm.com) for your convenience.
+
+### Test Account
+
+To explore and get started, feel free to sign in using the following credentials:
+
+- **Username:** IXN-2526
+- **Password:** Cresco_T26Admin
