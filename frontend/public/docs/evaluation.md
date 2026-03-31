@@ -51,7 +51,7 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 | UI Design                 | 30%   | 15%    | 10%       | 45%   |
 | Coding                    | 18%   | 12%    | 50%       | 20%   |
 | Testing                   | 35%   | 15%    | 38%       | 12%   |
-| Overall contribution      | 22.00% | 25.00% | 30.00%    | 23.00% |
+| Overall contribution      | 27.00% | 16.75% | 30.75%    | 25.50% |
 
 ### 1.5 Individual Contributions for Report Website
 
@@ -70,7 +70,7 @@ All 6 Must-have and 5 Should-have functional requirements were completed, along 
 | User and Deployment Manuals | 5%    | 5%     | 45%       | 45%   |
 | Legal Issues                | 95%   | 5%     | 0%        | 0%    |
 | Blog and Monthly Video      | 5%    | 70%    | 20%       | 5%    |
-| Overall contribution        | 22.00% | 24.50% | 30.00%    | 23.50% |
+| Overall contribution        | 19.62% | 32.31% | 25.38%    | 22.69% |
 
 ---
 
